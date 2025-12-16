@@ -4,7 +4,14 @@ import { useState } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { Sparkles, X, ChevronLeft, ChevronRight, Download, Share2 } from "lucide-react";
+import {
+  Sparkles,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Download,
+  Share2,
+} from "lucide-react";
 
 const galleryImages = [
   {
@@ -93,7 +100,14 @@ const galleryImages = [
   },
 ];
 
-const categories = ["All", "Living Room", "Bedroom", "Dining", "Office", "Outdoor"];
+const categories = [
+  "All",
+  "Living Room",
+  "Bedroom",
+  "Dining",
+  "Office",
+  "Outdoor",
+];
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -119,7 +133,9 @@ export default function GalleryPage() {
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + filteredImages.length) % filteredImages.length
+    );
   };
 
   return (
@@ -160,8 +176,9 @@ export default function GalleryPage() {
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl">
-              Explore our collection of handcrafted furniture pieces. Each photograph tells a story
-              of dedication, precision, and timeless design.
+              Explore our collection of handcrafted furniture pieces. Each
+              photograph tells a story of dedication, precision, and timeless
+              design.
             </p>
           </div>
         </div>
@@ -187,8 +204,12 @@ export default function GalleryPage() {
           {/* Category Filter */}
           <div className="mb-12 flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <h2 className="font-serif text-3xl lg:text-4xl">Browse by Category</h2>
-              <p className="text-muted-foreground">Filter our work to find exactly what inspires you</p>
+              <h2 className="font-serif text-3xl lg:text-4xl">
+                Browse by Category
+              </h2>
+              <p className="text-muted-foreground">
+                Filter our work to find exactly what inspires you
+              </p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-3">
@@ -208,7 +229,8 @@ export default function GalleryPage() {
             </div>
 
             <p className="text-sm text-muted-foreground">
-              Showing {filteredImages.length} {filteredImages.length === 1 ? "piece" : "pieces"}
+              Showing {filteredImages.length}{" "}
+              {filteredImages.length === 1 ? "piece" : "pieces"}
             </p>
           </div>
 
@@ -227,14 +249,18 @@ export default function GalleryPage() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+
                   <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="space-y-1">
                       <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">
                         {image.category}
                       </p>
-                      <h3 className="font-serif text-xl text-foreground">{image.title}</h3>
-                      <p className="text-sm text-muted-foreground">{image.description}</p>
+                      <h3 className="font-serif text-xl text-foreground">
+                        {image.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {image.description}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -247,9 +273,17 @@ export default function GalleryPage() {
               <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-secondary/50 mb-4">
                 <Sparkles className="h-8 w-8 text-muted-foreground" />
               </div>
-              <h3 className="font-serif text-2xl text-foreground mb-2">No items found</h3>
-              <p className="text-muted-foreground mb-6">Try selecting a different category</p>
-              <Button onClick={() => setSelectedCategory("All")} variant="outline" className="rounded-full">
+              <h3 className="font-serif text-2xl text-foreground mb-2">
+                No items found
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Try selecting a different category
+              </p>
+              <Button
+                onClick={() => setSelectedCategory("All")}
+                variant="outline"
+                className="rounded-full"
+              >
                 View all
               </Button>
             </div>
@@ -262,13 +296,18 @@ export default function GalleryPage() {
                 Ready to bring these designs to life?
               </h2>
               <p className="text-muted-foreground text-lg">
-                Our team can customize any piece to match your vision. Let's discuss your project.
+                Our team can customize any piece to match your vision. Let's
+                discuss your project.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="rounded-full text-base">
                   Request a Quote
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full text-base">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full text-base"
+                >
                   Download Catalog
                 </Button>
               </div>
@@ -308,7 +347,7 @@ export default function GalleryPage() {
                 alt={filteredImages[currentImageIndex].title}
                 className="w-full h-auto max-h-[80vh] object-contain rounded-3xl shadow-2xl"
               />
-              
+
               <div className="mt-6 text-center space-y-2">
                 <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">
                   {filteredImages[currentImageIndex].category}
@@ -319,7 +358,7 @@ export default function GalleryPage() {
                 <p className="text-muted-foreground">
                   {filteredImages[currentImageIndex].description}
                 </p>
-                
+
                 <div className="flex justify-center gap-3 pt-4">
                   <Button size="sm" variant="outline" className="rounded-full">
                     <Download className="h-4 w-4 mr-2" /> Download
@@ -328,7 +367,7 @@ export default function GalleryPage() {
                     <Share2 className="h-4 w-4 mr-2" /> Share
                   </Button>
                 </div>
-                
+
                 <p className="text-xs text-muted-foreground pt-2">
                   {currentImageIndex + 1} / {filteredImages.length}
                 </p>
