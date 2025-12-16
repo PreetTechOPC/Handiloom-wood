@@ -1,86 +1,104 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import {
-  ShoppingBag,
-  Heart,
-  ArrowRight,
-  ArrowUpRight,
-  Eye,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const products = [
   {
     id: 1,
     name: "Milano Lounge Chair",
     category: "Seating",
-    price: 1299,
-    originalPrice: 1599,
+    purpose: "Lounge & reading",
+    summary:
+      "Tailored curves with deep comfort, kiln-dried frame, and soft boucle upholstery for daily lounging.",
+    highlights: ["Italian boucle", "Solid oak base", "Feather-wrapped seat"],
     image:
       "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&q=80",
     badge: "Best Seller",
     badgeColor: "bg-primary",
     rating: 4.9,
     reviews: 124,
+    slug: "milano-lounge-chair",
   },
   {
     id: 2,
     name: "Oslo Dining Table",
     category: "Tables",
-    price: 2499,
+    purpose: "Dining & hosting",
+    summary:
+      "Slim Scandinavian profile with chamfered edges and a floating top for six guests.",
+    highlights: ["Solid ash", "Seats 6", "Matte lacquer"],
     image:
       "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80",
     badge: "New",
     badgeColor: "bg-foreground",
     rating: 4.8,
     reviews: 89,
+    slug: "oslo-dining-table",
   },
   {
     id: 3,
     name: "Vienna Sofa Set",
     category: "Living Room",
-    price: 3999,
+    purpose: "Living room centerpiece",
+    summary:
+      "Low, generous silhouette with bench seat and down blend cushions for laid-back hosting.",
+    highlights: ["Performance linen", "Bench cushion", "Modular arms"],
     image:
       "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
     badge: null,
     rating: 5.0,
     reviews: 201,
+    slug: "vienna-sofa-set",
   },
   {
     id: 4,
     name: "Nordic Bookshelf",
     category: "Storage",
-    price: 899,
+    purpose: "Display & storage",
+    summary:
+      "Open shelving with asymmetrical bays for objects, books, and media components.",
+    highlights: ["Solid oak", "Cable passthrough", "Adjustable shelves"],
     image:
       "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=600&q=80",
     badge: "Popular",
     badgeColor: "bg-green-600",
     rating: 4.7,
     reviews: 156,
+    slug: "nordic-bookshelf",
   },
   {
     id: 5,
     name: "Zen Coffee Table",
     category: "Tables",
-    price: 749,
+    purpose: "Centerpiece & layering",
+    summary:
+      "Softly beveled oval top with inset plinth base for a grounded, sculptural presence.",
+    highlights: ["Water-based finish", "Rounded edges", "Plinth base"],
     image:
       "https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=600&q=80",
     badge: null,
     rating: 4.8,
     reviews: 92,
+    slug: "zen-coffee-table",
   },
   {
     id: 6,
     name: "Aurora Bed Frame",
     category: "Bedroom",
-    price: 1899,
+    purpose: "Sleep & sanctuary",
+    summary:
+      "Channel-tufted headboard with gently wrapped edges and a quiet floating platform.",
+    highlights: ["Channel upholstery", "Solid hardwood slats", "No-box-spring"],
     image:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80",
     badge: "Best Seller",
     badgeColor: "bg-primary",
     rating: 4.9,
     reviews: 178,
+    slug: "aurora-bed-frame",
   },
 ];
 
@@ -166,7 +184,6 @@ export function ProductsSection() {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/0 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Badge */}
                 {product.badge && (
                   <span
                     className={`absolute top-4 left-4 px-4 py-1.5 ${product.badgeColor} text-white text-xs font-semibold rounded-full shadow-lg`}
@@ -176,40 +193,26 @@ export function ProductsSection() {
                 )}
 
                 <div
-                  className={`absolute top-4 right-4 flex flex-col gap-2 transition-all duration-500 ${
-                    hoveredId === product.id
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 translate-x-4"
-                  }`}
-                >
-                  <button className="w-11 h-11 bg-background/95 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:scale-110">
-                    <Heart className="w-5 h-5" />
-                  </button>
-                  <button className="w-11 h-11 bg-background/95 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:scale-110">
-                    <Eye className="w-5 h-5" />
-                  </button>
-                </div>
-
-                <div
                   className={`absolute inset-x-4 bottom-4 transition-all duration-500 ${
                     hoveredId === product.id
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-4"
                   }`}
                 >
-                  <Button className="w-full bg-background/95 backdrop-blur-md hover:bg-primary text-foreground hover:text-primary-foreground rounded-full py-6 font-semibold transition-all duration-300 shadow-lg group/btn">
-                    <ShoppingBag className="w-5 h-5 mr-2" />
-                    Add to Cart
-                    <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </Button>
+                  <Link href={`/products/${product.slug}`}>
+                    <Button className="w-full bg-background/95 backdrop-blur-md hover:bg-primary text-foreground hover:text-primary-foreground rounded-full py-6 font-semibold transition-all duration-300 shadow-lg group/btn">
+                      View Details
+                      <ArrowUpRight className="w-5 h-5 ml-2 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
               <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm text-muted-foreground">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/5 text-foreground">
                     {product.category}
-                  </p>
+                  </span>
                   <div className="flex items-center gap-1">
                     <svg
                       className="w-4 h-4 fill-primary text-primary"
@@ -225,18 +228,26 @@ export function ProductsSection() {
                     </span>
                   </div>
                 </div>
-                <h3 className="font-serif text-xl font-medium text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+
+                <h3 className="font-serif text-xl font-medium text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {product.name}
                 </h3>
-                <div className="flex items-center gap-3">
-                  <p className="text-xl font-bold text-foreground">
-                    ${product.price.toLocaleString()}
-                  </p>
-                  {product.originalPrice && (
-                    <p className="text-sm text-muted-foreground line-through">
-                      ${product.originalPrice.toLocaleString()}
-                    </p>
-                  )}
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {product.summary}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs text-foreground/70 px-3 py-1 rounded-full bg-foreground/5 border border-foreground/5">
+                    {product.purpose}
+                  </span>
+                  {product.highlights.map((item) => (
+                    <span
+                      key={item}
+                      className="text-xs text-foreground/70 px-3 py-1 rounded-full bg-foreground/5 border border-foreground/5"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
 
