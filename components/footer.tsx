@@ -1,35 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Send, MapPin, Phone, Mail, ArrowUpRight, Check } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { Send, MapPin, Phone, Mail, ArrowUpRight, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 const footerLinks = {
-  shop: [
-    { name: "Living Room", href: "#" },
-    { name: "Bedroom", href: "#" },
-    { name: "Dining", href: "#" },
-    { name: "Office", href: "#" },
-    { name: "Outdoor", href: "#" },
+  quickLinks: [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ],
-  company: [
-    { name: "About Us", href: "#about" },
-    { name: "Our Story", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Blog", href: "#" },
-  ],
-  support: [
-    { name: "Contact Us", href: "#" },
-    { name: "FAQs", href: "#" },
-    { name: "Shipping", href: "#" },
-    { name: "Returns", href: "#" },
-    { name: "Warranty", href: "#" },
-  ],
-}
+};
 
 const socialLinks = [
   {
@@ -48,20 +35,20 @@ const socialLinks = [
     name: "LinkedIn",
     icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
   },
-]
+];
 
 export function Footer() {
-  const [email, setEmail] = useState("")
-  const [isSubscribed, setIsSubscribed] = useState(false)
+  const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (email) {
-      setIsSubscribed(true)
-      setTimeout(() => setIsSubscribed(false), 3000)
-      setEmail("")
+      setIsSubscribed(true);
+      setTimeout(() => setIsSubscribed(false), 3000);
+      setEmail("");
     }
-  }
+  };
 
   return (
     <footer className="bg-foreground text-background relative overflow-hidden">
@@ -76,12 +63,18 @@ export function Footer() {
               Newsletter
               <span className="w-8 h-[2px] bg-primary" />
             </p>
-            <h3 className="font-serif text-4xl md:text-5xl font-medium mb-4">Stay in the Loop</h3>
+            <h3 className="font-serif text-4xl md:text-5xl font-medium mb-4">
+              Stay in the Loop
+            </h3>
             <p className="text-background/60 text-lg mb-10 max-w-xl mx-auto">
-              Subscribe for exclusive offers, design tips, and early access to new collections.
+              Subscribe for exclusive offers, design tips, and early access to
+              new collections.
             </p>
 
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto"
+            >
               <div className="relative flex-1">
                 <Input
                   type="email"
@@ -115,56 +108,59 @@ export function Footer() {
       <div className="container mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand Column */}
-          <div className="lg:col-span-4">
-            <a href="#" className="inline-flex items-center gap-3 mb-8 group">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500">
-                <span className="font-serif text-2xl font-bold text-primary-foreground">A</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-2xl font-semibold text-background leading-none">Artisan</span>
-                <span className="text-[10px] uppercase tracking-[0.3em] text-background/60">Living</span>
-              </div>
-            </a>
+          <div className="lg:col-span-5">
+            <div className="mb-8 p-4 bg-white rounded-lg inline-block">
+              <Image
+                src={"/logo.webp"}
+                alt="Handiloomwood Logo"
+                width={150}
+                height={50}
+                className="object-contain"
+              />
+            </div>
             <p className="text-background/60 mb-8 max-w-sm leading-relaxed">
-              Crafting timeless furniture pieces that transform houses into homes. Every piece tells a story of
-              dedication, passion, and exceptional craftsmanship.
+              Crafting premium handcrafted furniture with traditional
+              techniques. Every piece tells a story of dedication, passion, and
+              exceptional craftsmanship.
             </p>
 
             <div className="space-y-4">
               <a
-                href="#"
-                className="flex items-center gap-4 text-background/60 hover:text-primary transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <MapPin className="w-4 h-4 text-primary" />
-                </div>
-                <span>123 Artisan Street, Design District, NY 10001</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center gap-4 text-background/60 hover:text-primary transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-4 h-4 text-primary" />
-                </div>
-                <span>+1 (555) 123-4567</span>
-              </a>
-              <a
-                href="#"
+                href="mailto:info@handiloomwood.com"
                 className="flex items-center gap-4 text-background/60 hover:text-primary transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
-                <span>hello@artisanliving.com</span>
+                <span>info@handiloomwood.com</span>
               </a>
+              <a
+                href="tel:+919876543210"
+                className="flex items-center gap-4 text-background/60 hover:text-primary transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Phone className="w-4 h-4 text-primary" />
+                </div>
+                <span>+91 98765 43210</span>
+              </a>
+              <div className="flex items-start gap-4 text-background/60">
+                <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-primary" />
+                </div>
+                <span>
+                  123, Industrial Area, Phase 2<br />
+                  Jodhpur, Rajasthan 342001, India
+                </span>
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-2">
-            <h4 className="font-semibold text-background mb-6 text-lg">Shop</h4>
+          <div className="lg:col-span-3">
+            <h4 className="font-semibold text-background mb-6 text-lg">
+              Quick Links
+            </h4>
             <ul className="space-y-4">
-              {footerLinks.shop.map((link) => (
+              {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -178,43 +174,11 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
-            <h4 className="font-semibold text-background mb-6 text-lg">Company</h4>
-            <ul className="space-y-4">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-background/60 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span>{link.name}</span>
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h4 className="font-semibold text-background mb-6 text-lg">Support</h4>
-            <ul className="space-y-4">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-background/60 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span>{link.name}</span>
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h4 className="font-semibold text-background mb-6 text-lg">Follow Us</h4>
-            <div className="flex flex-wrap gap-3">
+          <div className="lg:col-span-4">
+            <h4 className="font-semibold text-background mb-6 text-lg">
+              Follow Us
+            </h4>
+            <div className="flex flex-wrap gap-3 mb-6">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -222,12 +186,25 @@ export function Footer() {
                   className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
                   aria-label={social.name}
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path d={social.icon} />
                   </svg>
                 </a>
               ))}
             </div>
+            <p className="text-background/60 text-sm">
+              Business Hours:
+              <br />
+              Mon-Fri: 9:00 AM - 6:00 PM IST
+              <br />
+              Sat: 10:00 AM - 4:00 PM IST
+              <br />
+              Sunday: Closed
+            </p>
           </div>
         </div>
       </div>
@@ -239,13 +216,22 @@ export function Footer() {
               © 2025 Artisan Living. All rights reserved. Crafted with passion.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-background/40 hover:text-primary text-sm transition-colors">
+              <a
+                href="#"
+                className="text-background/40 hover:text-primary text-sm transition-colors"
+              >
                 Privacy Policy
               </a>
-              <a href="#" className="text-background/40 hover:text-primary text-sm transition-colors">
+              <a
+                href="#"
+                className="text-background/40 hover:text-primary text-sm transition-colors"
+              >
                 Terms of Service
               </a>
-              <a href="#" className="text-background/40 hover:text-primary text-sm transition-colors">
+              <a
+                href="#"
+                className="text-background/40 hover:text-primary text-sm transition-colors"
+              >
                 Cookies
               </a>
             </div>
@@ -253,5 +239,15 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
+<div className="border-t border-background/10">
+  <div className="container mx-auto px-6 py-6">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-2">
+      <p className="text-background/40 text-sm text-center">
+        © 2025 Handiloomwood. All rights reserved. Crafted with passion &
+        precision.
+      </p>
+    </div>
+  </div>
+</div>;
