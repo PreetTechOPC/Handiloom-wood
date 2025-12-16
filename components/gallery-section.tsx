@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ArrowUpRight, ZoomIn } from "lucide-react";
+import Link from "next/link";
 
 const galleryImages = [
   {
@@ -75,25 +75,32 @@ export function GallerySection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div
-          className={`flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 transition-all duration-1000 ${
+          className={`flex flex-col gap-6 lg:gap-0 lg:flex-row lg:items-end justify-between mb-16 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="max-w-xl">
-            <p className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm mb-4">
+          <div className="max-w-xl space-y-4">
+            <p className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm">
               <span className="w-8 h-[2px] bg-primary" />
               Gallery
             </p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1]">
               Seeing is <span className="text-primary">Believing</span>
             </h2>
-            <p className="text-muted-foreground mt-4 text-lg">
+            <p className="text-muted-foreground text-lg">
               Explore how our furniture transforms spaces into beautiful,
               functional homes.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <Link
+            href="/gallery"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold shadow-md hover:shadow-lg hover:bg-primary/90 transition-all duration-300 self-start lg:self-auto"
+          >
+            View Full Gallery
+          </Link>
+
+          <div className="flex flex-wrap gap-3 lg:justify-end">
             {["All", "Living", "Bedroom", "Dining", "Office"].map(
               (filter, i) => (
                 <button
@@ -143,13 +150,6 @@ export function GallerySection() {
                   hoveredId === image.id ? "opacity-100" : "opacity-0"
                 }`}
               >
-                {/* Top actions */}
-                <div className="flex justify-end">
-                  <button className="w-12 h-12 bg-background/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-background/40 transition-colors">
-                    <ZoomIn className="w-5 h-5" />
-                  </button>
-                </div>
-
                 {/* Bottom content */}
                 <div
                   className={`transform transition-transform duration-500 ${
@@ -159,12 +159,9 @@ export function GallerySection() {
                   <span className="inline-block px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full mb-3">
                     {image.category}
                   </span>
-                  <div className="flex items-center justify-between">
-                    <p className="font-serif text-xl lg:text-2xl text-white font-medium">
-                      {image.alt}
-                    </p>
-                    <ArrowUpRight className="w-6 h-6 text-white" />
-                  </div>
+                  <p className="font-serif text-xl lg:text-2xl text-white font-medium">
+                    {image.alt}
+                  </p>
                 </div>
               </div>
 
