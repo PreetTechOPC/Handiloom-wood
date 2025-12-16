@@ -103,7 +103,7 @@ export function HeroSection() {
                   <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/0 to-white/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </Button>
               </Link>
-              <Link href="/about">
+              <Link href="/about#manufacturing-video">
                 <Button
                   size="lg"
                   variant="outline"

@@ -17,6 +17,12 @@ import {
   MapPin,
   ArrowRight,
   Play,
+  Award,
+  Leaf,
+  Heart,
+  CheckCircle2,
+  Truck,
+  Settings,
 } from "lucide-react";
 
 const faqs = [
@@ -111,7 +117,7 @@ export default function AboutPage() {
                   </span>
                 </Button>
               </Link>
-              <Link href="/gallery">
+              <Link href="#manufacturing-video">
                 <Button
                   size="lg"
                   variant="outline"
@@ -146,6 +152,80 @@ export default function AboutPage() {
         </div>
 
         <div className="container mx-auto px-6 py-24 relative space-y-20">
+          {/* Why Choose Us */}
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-5xl space-y-6 mb-14">
+              <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+                <Sparkles className="h-4 w-4" /> Why Choose Us
+              </p>
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-foreground">
+                Excellence in every detail
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl">
+                Handiloomwood combines traditional Indian craftsmanship with
+                modern manufacturing excellence. Our commitment to quality,
+                sustainability, and client satisfaction sets us apart in the
+                global furniture export market.
+              </p>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  icon: Award,
+                  title: "Premium Quality",
+                  description:
+                    "Every piece undergoes rigorous 3-stage quality control, ensuring only the finest furniture reaches your doorstep.",
+                },
+                {
+                  icon: Leaf,
+                  title: "Sustainable Sourcing",
+                  description:
+                    "We use responsibly sourced hardwoods and eco-friendly finishes, committed to environmental stewardship.",
+                },
+                {
+                  icon: Heart,
+                  title: "Handcrafted with Care",
+                  description:
+                    "Skilled artisans blend time-honored techniques with precision tools for furniture that tells a story.",
+                },
+                {
+                  icon: Shield,
+                  title: "15+ Years Experience",
+                  description:
+                    "Over a decade of expertise in crafting and exporting furniture to 30+ countries worldwide.",
+                },
+                {
+                  icon: Truck,
+                  title: "Global Shipping",
+                  description:
+                    "Export-compliant packaging and full documentation ensure safe delivery to any destination.",
+                },
+                {
+                  icon: Settings,
+                  title: "Custom Solutions",
+                  description:
+                    "Tailored designs, dimensions, and finishes to match your exact specifications and brand requirements.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="group rounded-3xl border border-border/60 bg-background/80 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:border-primary/30 hover:-translate-y-1"
+                >
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <item.icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="font-serif text-2xl text-foreground mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Our Story */}
           <div className="max-w-5xl space-y-6">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
@@ -288,7 +368,11 @@ export default function AboutPage() {
                 around the world.
               </p>
               <div className="flex items-center gap-3 text-sm text-foreground/80">
-                <div className="h-12 w-12 rounded-full bg-primary/15" />
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80"
+                  alt="Arjun Mehra"
+                  className="h-12 w-12 rounded-full object-cover border-2 border-primary/20"
+                />
                 <div>
                   <p className="font-semibold text-foreground">Arjun Mehra</p>
                   <p className="text-muted-foreground">
@@ -296,6 +380,75 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Manufacturing Video Section */}
+          <div id="manufacturing-video" className="mt-20 scroll-mt-24">
+            <div className="max-w-5xl space-y-6 mb-10">
+              <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+                <Play className="h-4 w-4" /> Workshop Tour
+              </p>
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-foreground">
+                See our craftsmanship in action
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl">
+                Take a behind-the-scenes look at our state-of-the-art
+                manufacturing facilities where traditional craftsmanship meets
+                modern precision. Watch how we transform raw timber into
+                beautiful, export-ready furniture.
+              </p>
+            </div>
+
+            <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-border/60 bg-secondary/40 shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/18 via-transparent to-background" />
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Handiloomwood Manufacturing Process"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-3">
+              {[
+                {
+                  icon: Factory,
+                  title: "Modern Facilities",
+                  description:
+                    "Multi-facility network with CNC machinery and kiln drying",
+                },
+                {
+                  icon: Users,
+                  title: "Skilled Artisans",
+                  description:
+                    "Expert craftsmen with decades of woodworking experience",
+                },
+                {
+                  icon: CheckCircle2,
+                  title: "Quality Control",
+                  description:
+                    "Rigorous inspection at every stage of production",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-4 rounded-2xl border border-border/60 bg-background/70 p-6 backdrop-blur-md shadow-lg"
+                >
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <item.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
