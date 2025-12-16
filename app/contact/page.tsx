@@ -155,154 +155,15 @@ export default function ContactPage() {
         />
 
         <div className="container mx-auto px-6 py-18 lg:py-20 relative space-y-16">
-          <div className="grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-                  Reach Us
-                </p>
-                <h2 className="font-serif text-3xl lg:text-4xl leading-tight">
-                  Connect with Handiloomwood
-                </h2>
-                <p className="text-muted-foreground">
-                  Choose your preferred channel. We typically respond within 24
-                  hours.
-                </p>
-              </div>
-
-              <div className="grid gap-4">
-                <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1 space-y-1">
-                      <h3 className="font-semibold">Phone</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Mon-Sat · 9:00 AM - 6:00 PM IST
-                      </p>
-                      <div className="flex flex-col text-primary font-medium">
-                        <a href="tel:+919876543210" className="hover:underline">
-                          +91 98765 43210
-                        </a>
-                        <a href="tel:+919876543211" className="hover:underline">
-                          +91 98765 43211
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1 space-y-1">
-                      <h3 className="font-semibold">Email</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Fastest for detailed specs & documents
-                      </p>
-                      <div className="flex flex-col text-primary font-medium">
-                        <a
-                          href="mailto:info@handiloomwood.com"
-                          className="hover:underline"
-                        >
-                          info@handiloomwood.com
-                        </a>
-                        <a
-                          href="mailto:sales@handiloomwood.com"
-                          className="hover:underline"
-                        >
-                          sales@handiloomwood.com
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1 space-y-1">
-                      <h3 className="font-semibold">Office & Showroom</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Visit our manufacturing facility
-                      </p>
-                      <p className="text-foreground/90 leading-relaxed">
-                        123, Industrial Area, Phase 2<br />
-                        Jodhpur, Rajasthan 342001
-                        <br />
-                        India
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <Clock className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1 space-y-2">
-                      <h3 className="font-semibold">Business Hours</h3>
-                      <div className="space-y-1 text-sm text-foreground/80">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">
-                            Mon - Fri
-                          </span>
-                          <span className="font-medium">9:00 AM - 6:00 PM</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">
-                            Saturday
-                          </span>
-                          <span className="font-medium">
-                            10:00 AM - 4:00 PM
-                          </span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Sunday</span>
-                          <span className="font-medium">Closed</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg">
-                  <h3 className="font-semibold mb-3">Need immediate help?</h3>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    <a
-                      href="tel:+919876543210"
-                      className="flex items-center gap-2 rounded-xl bg-primary/10 px-4 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      <Headphones className="h-4 w-4" /> Call Sales Team
-                    </a>
-                    <a
-                      href="https://wa.me/919876543210"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 rounded-xl bg-primary/10 px-4 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      <Globe className="h-4 w-4" /> WhatsApp Chat
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Inquiry Form */}
+          {/* Inquiry Form Section - Centered */}
+          <div className="max-w-3xl mx-auto">
             <div className="rounded-4xl border border-border/60 bg-background/85 backdrop-blur-xl shadow-2xl p-8 lg:p-10">
               <div className="space-y-6">
-                <div className="space-y-2">
+                <div className="space-y-2 text-center">
                   <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
                     Enquiry
                   </p>
-                  <h2 className="font-serif text-3xl">
+                  <h2 className="font-serif text-3xl lg:text-4xl">
                     Tell us about your project
                   </h2>
                   <p className="text-muted-foreground">
@@ -472,6 +333,142 @@ export default function ContactPage() {
                   </form>
                 )}
               </div>
+            </div>
+          </div>
+
+          {/* Contact Information Section */}
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center space-y-3 mb-12">
+              <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+                <Sparkles className="h-4 w-4" /> Get In Touch
+              </p>
+              <h2 className="font-serif text-3xl lg:text-4xl leading-tight">
+                Multiple Ways to Connect
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Choose your preferred channel. We typically respond within 24
+                hours.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="h-14 w-14 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Phone className="h-6 w-6" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-semibold text-lg">Phone</h3>
+                    <p className="text-xs text-muted-foreground">
+                      Mon-Sat · 9:00 AM - 6:00 PM IST
+                    </p>
+                    <div className="flex flex-col text-primary font-medium text-sm">
+                      <a href="tel:+919876543210" className="hover:underline">
+                        +91 98765 43210
+                      </a>
+                      <a href="tel:+919876543211" className="hover:underline">
+                        +91 98765 43211
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="h-14 w-14 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-semibold text-lg">Email</h3>
+                    <p className="text-xs text-muted-foreground">
+                      Fastest for detailed specs
+                    </p>
+                    <div className="flex flex-col text-primary font-medium text-sm">
+                      <a
+                        href="mailto:info@handiloomwood.com"
+                        className="hover:underline"
+                      >
+                        info@handiloomwood.com
+                      </a>
+                      <a
+                        href="mailto:sales@handiloomwood.com"
+                        className="hover:underline"
+                      >
+                        sales@handiloomwood.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="h-14 w-14 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-semibold text-lg">Visit Us</h3>
+                    <p className="text-xs text-muted-foreground">
+                      Manufacturing facility
+                    </p>
+                    <p className="text-foreground/90 text-sm leading-relaxed">
+                      123, Industrial Area, Phase 2<br />
+                      Jodhpur, Rajasthan 342001
+                      <br />
+                      India
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group rounded-3xl border border-border/70 bg-background/80 backdrop-blur-sm p-6 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="h-14 w-14 rounded-full bg-primary/15 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Clock className="h-6 w-6" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-semibold text-lg">Business Hours</h3>
+                    <div className="space-y-1 text-xs text-foreground/80">
+                      <div className="flex flex-col gap-0.5">
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">
+                            Mon - Fri
+                          </span>
+                          <span className="font-medium">9 AM - 6 PM</span>
+                        </div>
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">
+                            Saturday
+                          </span>
+                          <span className="font-medium">10 AM - 4 PM</span>
+                        </div>
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">Sunday</span>
+                          <span className="font-medium">Closed</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <a
+                href="tel:+919876543210"
+                className="flex items-center justify-center gap-2 rounded-full bg-primary/10 px-6 py-4 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors border border-primary/20"
+              >
+                <Headphones className="h-5 w-5" /> Call Sales Team
+              </a>
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-full bg-primary/10 px-6 py-4 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors border border-primary/20"
+              >
+                <Globe className="h-5 w-5" /> WhatsApp Chat
+              </a>
             </div>
           </div>
 
