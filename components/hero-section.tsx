@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Play, Shield, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,8 +28,8 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="container mx-auto px-6 pt-40 pb-24 relative">
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 pt-32 sm:pt-40 pb-20 sm:pb-24 relative">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 sm:gap-16 items-center">
           {/* Left: copy */}
           <div className="space-y-9 max-w-3xl">
             <div
@@ -57,7 +58,7 @@ export function HeroSection() {
 
             <div className="space-y-5">
               <h1
-                className={`font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight transition-all duration-700 delay-100 ${
+                className={`font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight transition-all duration-700 delay-100 ${
                   isLoaded
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
@@ -69,7 +70,7 @@ export function HeroSection() {
                 </span>
               </h1>
               <p
-                className={`text-lg sm:text-xl text-muted-foreground max-w-2xl transition-all duration-700 delay-200 ${
+                className={`text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl transition-all duration-700 delay-200 ${
                   isLoaded
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
@@ -84,29 +85,33 @@ export function HeroSection() {
             </div>
 
             <div
-              className={`flex flex-wrap items-center gap-4 transition-all duration-700 delay-300 ${
+              className={`flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 transition-all duration-700 delay-300 ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <Button
-                size="lg"
-                className="group relative overflow-hidden rounded-full bg-primary px-8 py-6 text-base font-semibold text-primary-foreground shadow-[0_20px_60px_-25px_var(--primary)] transition-all hover:shadow-[0_25px_70px_-25px_var(--primary)]"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Explore the collection
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/0 to-white/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full border-foreground/15 bg-transparent px-8 py-6 text-base font-semibold text-foreground/80 transition-colors hover:bg-foreground hover:text-background"
-              >
-                <Play className="mr-2 h-4 w-4" /> Watch our story
-              </Button>
+              <Link href="/products">
+                <Button
+                  size="lg"
+                  className="group relative overflow-hidden rounded-full bg-primary px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold text-primary-foreground shadow-[0_20px_60px_-25px_var(--primary)] transition-all hover:shadow-[0_25px_70px_-25px_var(--primary)]"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Explore the collection
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/0 to-white/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-foreground/15 bg-transparent px-8 py-6 text-base font-semibold text-foreground/80 transition-colors hover:bg-foreground hover:text-background"
+                >
+                  <Play className="mr-2 h-4 w-4" /> Watch our story
+                </Button>
+              </Link>
             </div>
 
             <div

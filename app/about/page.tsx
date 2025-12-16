@@ -7,6 +7,7 @@ import {
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   Shield,
   Globe2,
@@ -99,22 +100,26 @@ export default function AboutPage() {
             </div>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button
-                size="lg"
-                className="group relative overflow-hidden rounded-full bg-primary px-8 py-6 text-base font-semibold text-primary-foreground shadow-[0_22px_70px_-28px_var(--primary)]"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Explore Our Story
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full border-foreground/20 bg-background/60 backdrop-blur-sm px-8 py-6 text-base font-semibold text-foreground hover:bg-foreground hover:text-background"
-              >
-                <Play className="mr-2 h-4 w-4" /> Watch Workshop Tour
-              </Button>
+              <Link href="/products">
+                <Button
+                  size="lg"
+                  className="group relative overflow-hidden rounded-full bg-primary px-8 py-6 text-base font-semibold text-primary-foreground shadow-[0_22px_70px_-28px_var(--primary)]"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Explore Our Story
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Button>
+              </Link>
+              <Link href="/gallery">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-foreground/20 bg-background/60 backdrop-blur-sm px-8 py-6 text-base font-semibold text-foreground hover:bg-foreground hover:text-background"
+                >
+                  <Play className="mr-2 h-4 w-4" /> Watch Workshop Tour
+                </Button>
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-3 pt-4 text-sm">
@@ -338,19 +343,23 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-primary px-7 py-5 text-primary-foreground font-semibold"
-                >
-                  Book a call
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-foreground/15 bg-background/60 backdrop-blur-sm px-7 py-5 text-foreground font-semibold hover:bg-foreground hover:text-background"
-                >
-                  Download catalog
-                </Button>
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-primary px-7 py-5 text-primary-foreground font-semibold"
+                  >
+                    Book a call
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-foreground/15 bg-background/60 backdrop-blur-sm px-7 py-5 text-foreground font-semibold hover:bg-foreground hover:text-background"
+                  >
+                    Download catalog
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

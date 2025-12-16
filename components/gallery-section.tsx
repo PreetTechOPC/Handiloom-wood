@@ -73,7 +73,7 @@ export function GallerySection() {
       <div className="absolute top-20 left-20 w-40 h-40 bg-primary/10 rounded-full blur-[100px]" />
       <div className="absolute bottom-20 right-20 w-60 h-60 bg-primary/5 rounded-full blur-[100px]" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div
           className={`flex flex-col gap-6 lg:gap-0 lg:flex-row lg:items-end justify-between mb-16 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -118,7 +118,7 @@ export function GallerySection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 auto-rows-[180px] lg:auto-rows-[220px]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 auto-rows-[160px] sm:auto-rows-[180px] lg:auto-rows-[220px]">
           {galleryImages.map((image, index) => (
             <div
               key={image.id}
@@ -146,7 +146,7 @@ export function GallerySection() {
               />
 
               <div
-                className={`absolute inset-0 p-6 flex flex-col justify-between transition-all duration-500 ${
+                className={`absolute inset-0 p-3 sm:p-4 lg:p-6 flex flex-col justify-between transition-all duration-500 ${
                   hoveredId === image.id ? "opacity-100" : "opacity-0"
                 }`}
               >
@@ -156,10 +156,10 @@ export function GallerySection() {
                     hoveredId === image.id ? "translate-y-0" : "translate-y-4"
                   }`}
                 >
-                  <span className="inline-block px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full mb-3">
+                  <span className="inline-block px-2 sm:px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full mb-2 sm:mb-3">
                     {image.category}
                   </span>
-                  <p className="font-serif text-xl lg:text-2xl text-white font-medium">
+                  <p className="font-serif text-base sm:text-lg lg:text-2xl text-white font-medium">
                     {image.alt}
                   </p>
                 </div>

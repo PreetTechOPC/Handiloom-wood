@@ -1,16 +1,18 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] })
-const playfair = Playfair_Display({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Artisan Living | Premium Handcrafted Furniture",
+  title: "Handiloomwood | Premium Handcrafted Wooden Furniture Exporters",
   description:
-    "Discover timeless furniture pieces that blend artisanal craftsmanship with modern design. Each piece tells a story of dedication and passion.",
+    "Leading Indian furniture exporters specializing in premium handcrafted wooden furniture for hotels, homes, and commercial spaces worldwide. Custom designs, quality craftsmanship since 2009.",
+  keywords:
+    "handcrafted furniture, wooden furniture exporters India, custom furniture, hotel furniture, premium furniture, Jodhpur furniture, furniture manufacturers",
   generator: "v0.app",
   icons: {
     icon: [
@@ -29,19 +31,19 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

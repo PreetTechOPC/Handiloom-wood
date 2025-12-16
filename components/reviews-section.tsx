@@ -98,11 +98,11 @@ export function ReviewsSection() {
     <section
       ref={sectionRef}
       id="reviews"
-      className="py-28 lg:py-40 bg-background overflow-hidden relative"
+      className="py-20 sm:py-28 lg:py-40 bg-secondary/30 relative overflow-hidden"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px]" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <div
           className={`text-center max-w-2xl mx-auto mb-20 transition-all duration-1000 ${

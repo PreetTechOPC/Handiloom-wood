@@ -132,9 +132,9 @@ export function ProductsSection() {
         }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div
-          className={`flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 transition-all duration-1000 ${
+          className={`flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -151,21 +151,23 @@ export function ProductsSection() {
               exceptional quality and design.
             </p>
           </div>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full px-8 py-6 border-foreground/20 hover:bg-foreground hover:text-background self-start lg:self-auto group bg-transparent transition-all duration-300"
-          >
-            View All Products
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <Link href="/products">
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full px-8 py-6 border-foreground/20 hover:bg-foreground hover:text-background self-start lg:self-auto group bg-transparent transition-all duration-300"
+            >
+              View All Products
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {products.map((product, index) => (
             <div
               key={product.id}
-              className={`group relative bg-background rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 ${
+              className={`group relative bg-background rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-12"
@@ -208,7 +210,7 @@ export function ProductsSection() {
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <div className="flex items-center justify-between mb-3">
                   <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/5 text-foreground">
                     {product.category}
@@ -229,10 +231,10 @@ export function ProductsSection() {
                   </div>
                 </div>
 
-                <h3 className="font-serif text-xl font-medium text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {product.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4">
                   {product.summary}
                 </p>
 

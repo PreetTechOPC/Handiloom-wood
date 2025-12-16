@@ -56,17 +56,17 @@ export function Footer() {
         {/* Decorative gradient */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 rounded-full blur-[100px]" />
 
-        <div className="container mx-auto px-6 py-20 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm mb-4">
+            <p className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs sm:text-sm mb-3 sm:mb-4">
               <span className="w-8 h-[2px] bg-primary" />
               Newsletter
               <span className="w-8 h-[2px] bg-primary" />
             </p>
-            <h3 className="font-serif text-4xl md:text-5xl font-medium mb-4">
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium mb-3 sm:mb-4">
               Stay in the Loop
             </h3>
-            <p className="text-background/60 text-lg mb-10 max-w-xl mx-auto">
+            <p className="text-background/60 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl mx-auto leading-relaxed">
               Subscribe for exclusive offers, design tips, and early access to
               new collections.
             </p>
@@ -105,11 +105,11 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+      <div className="container mx-auto px-6 py-16 sm:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-5">
-            <div className="mb-8 p-4 bg-white rounded-lg inline-block">
+            <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-white rounded-lg inline-block">
               <Image
                 src={"/logo.webp"}
                 alt="Handiloomwood Logo"
@@ -118,13 +118,13 @@ export function Footer() {
                 className="object-contain"
               />
             </div>
-            <p className="text-background/60 mb-8 max-w-sm leading-relaxed">
+            <p className="text-background/60 mb-6 sm:mb-8 max-w-sm leading-relaxed text-sm sm:text-base">
               Crafting premium handcrafted furniture with traditional
               techniques. Every piece tells a story of dedication, passion, and
               exceptional craftsmanship.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <a
                 href="mailto:info@handiloomwood.com"
                 className="flex items-center gap-4 text-background/60 hover:text-primary transition-colors group"
@@ -210,44 +210,15 @@ export function Footer() {
       </div>
 
       <div className="border-t border-background/10">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-background/40 text-sm">
-              © 2025 Artisan Living. All rights reserved. Crafted with passion.
+        <div className="container mx-auto px-4 sm:px-6 py-5 sm:py-6">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-2">
+            <p className="text-background/40 text-xs sm:text-sm text-center">
+              © 2025 Handiloomwood. All rights reserved. Crafted with passion &
+              precision.
             </p>
-            <div className="flex items-center gap-6">
-              <a
-                href="#"
-                className="text-background/40 hover:text-primary text-sm transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-background/40 hover:text-primary text-sm transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-background/40 hover:text-primary text-sm transition-colors"
-              >
-                Cookies
-              </a>
-            </div>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-<div className="border-t border-background/10">
-  <div className="container mx-auto px-6 py-6">
-    <div className="flex flex-col md:flex-row justify-center items-center gap-2">
-      <p className="text-background/40 text-sm text-center">
-        © 2025 Handiloomwood. All rights reserved. Crafted with passion &
-        precision.
-      </p>
-    </div>
-  </div>
-</div>;

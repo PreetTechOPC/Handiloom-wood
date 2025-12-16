@@ -109,12 +109,12 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[0.92] tracking-tight text-foreground">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[0.92] tracking-tight text-foreground">
               Let's design furniture that
               <span className="block text-primary">moves your spaces.</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl">
               Tell us about your project, sourcing needs, or custom program. Our
               specialists will align specs, timelines, and logistics tailored to
               you.

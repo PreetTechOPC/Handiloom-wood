@@ -63,8 +63,8 @@ export default async function ProductDetailPage({
           }}
         />
 
-        <div className="container mx-auto px-6 pt-12 pb-6 relative">
-          <div className="mb-8 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+        <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-6 relative">
+          <div className="mb-6 sm:mb-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground">
             <Link
               href="/products"
               className="inline-flex items-center gap-2 hover:text-primary transition-colors"
@@ -78,8 +78,8 @@ export default async function ProductDetailPage({
           </div>
 
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 xl:gap-14">
-            <div className="space-y-6">
-              <div className="relative overflow-hidden rounded-4xl border border-border/60 bg-background/70 backdrop-blur-xl shadow-2xl">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-background/70 backdrop-blur-xl shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 via-transparent to-transparent" />
                 <img
                   src={product.images[0]}
@@ -147,19 +147,20 @@ export default async function ProductDetailPage({
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Button
-                  size="lg"
-                  className="flex-1 min-w-[180px] rounded-full text-base"
-                >
-                  Start an order
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground"
-                >
-                  Talk to a specialist
-                </Button>
+                <Link href="/contact" className="flex-1 min-w-[180px]">
+                  <Button size="lg" className="w-full rounded-full text-base">
+                    Start an order
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    Talk to a specialist
+                  </Button>
+                </Link>
                 <div className="flex gap-2">
                   <Button
                     size="icon"

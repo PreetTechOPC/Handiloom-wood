@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Award, Leaf, Heart, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const features = [
   {
@@ -92,12 +93,12 @@ export function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-28 lg:py-40 bg-background relative overflow-hidden"
+      className="py-20 sm:py-28 lg:py-40 bg-background relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/30 -skew-x-12 translate-x-1/4" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-center">
           <div
             className={`relative transition-all duration-1000 ${
               isVisible
@@ -233,15 +234,17 @@ export function AboutSection() {
               ))}
             </div>
 
-            <Button
-              size="lg"
-              className="rounded-full px-10 py-7 text-base bg-foreground text-background hover:bg-foreground/90 group mt-4 shine-effect overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center">
-                Learn More About Us
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Button>
+            <Link href="/about">
+              <Button
+                size="lg"
+                className="rounded-full px-10 py-7 text-base bg-foreground text-background hover:bg-foreground/90 group mt-4 shine-effect overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center">
+                  Learn More About Us
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -65,15 +65,18 @@ export function Header() {
 
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-2">
-              <Button className="ml-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2.5 text-sm font-medium shine-effect overflow-hidden relative group">
-                <span className="relative z-10">Get in Touch</span>
-              </Button>
+              <Link href="/contact">
+                <Button className="ml-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2.5 text-sm font-medium shine-effect overflow-hidden relative group">
+                  <span className="relative z-10">Get in Touch</span>
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden relative p-2 text-foreground z-50"
+              className="lg:hidden relative p-3 text-foreground z-50 -mr-3"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
             >
               <div className="relative w-6 h-6">
                 <span
