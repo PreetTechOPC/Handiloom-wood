@@ -10,11 +10,8 @@ import {
   Ruler,
   Package,
   Palette,
-  Clock,
   Shield,
   Truck,
-  Heart,
-  Share2,
 } from "lucide-react";
 import {
   products,
@@ -132,51 +129,12 @@ export default async function ProductDetailPage({
                 </p>
               </div>
 
-              <div className="flex items-end gap-4 pb-4 border-b border-border/70">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-foreground/60">
-                    Starting at
-                  </p>
-                  <p className="font-serif text-4xl">
-                    ₹{product.price.toLocaleString()}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="h-4 w-4 text-primary" /> {product.leadTime}
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="flex-1 min-w-[180px]">
+              <div className="pt-4">
+                <Link href="/contact" className="block">
                   <Button size="lg" className="w-full rounded-full text-base">
-                    Start an order
+                    Talk to Us
                   </Button>
                 </Link>
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground"
-                  >
-                    Talk to a specialist
-                  </Button>
-                </Link>
-                <div className="flex gap-2">
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    className="rounded-full"
-                  >
-                    <Heart className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    className="rounded-full"
-                  >
-                    <Share2 className="h-4 w-4" />
-                  </Button>
-                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
