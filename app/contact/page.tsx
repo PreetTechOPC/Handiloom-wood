@@ -7,6 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Phone,
   Mail,
   MapPin,
@@ -19,10 +26,65 @@ import {
   Headphones,
 } from "lucide-react";
 
+const countryCodes = [
+  { code: "+91", country: "India", flag: "🇮🇳" },
+  { code: "+1", country: "USA/Canada", flag: "🇺🇸" },
+  { code: "+44", country: "UK", flag: "🇬🇧" },
+  { code: "+971", country: "UAE", flag: "🇦🇪" },
+  { code: "+61", country: "Australia", flag: "🇦🇺" },
+  { code: "+49", country: "Germany", flag: "🇩🇪" },
+  { code: "+33", country: "France", flag: "🇫🇷" },
+  { code: "+81", country: "Japan", flag: "🇯🇵" },
+  { code: "+86", country: "China", flag: "🇨🇳" },
+  { code: "+7", country: "Russia", flag: "🇷🇺" },
+  { code: "+39", country: "Italy", flag: "🇮🇹" },
+  { code: "+34", country: "Spain", flag: "🇪🇸" },
+  { code: "+55", country: "Brazil", flag: "🇧🇷" },
+  { code: "+27", country: "South Africa", flag: "🇿🇦" },
+  { code: "+966", country: "Saudi Arabia", flag: "🇸🇦" },
+  { code: "+65", country: "Singapore", flag: "🇸🇬" },
+  { code: "+82", country: "South Korea", flag: "🇰🇷" },
+  { code: "+31", country: "Netherlands", flag: "🇳🇱" },
+  { code: "+41", country: "Switzerland", flag: "🇨🇭" },
+  { code: "+46", country: "Sweden", flag: "🇸🇪" },
+  { code: "+47", country: "Norway", flag: "🇳🇴" },
+  { code: "+45", country: "Denmark", flag: "🇩🇰" },
+  { code: "+353", country: "Ireland", flag: "🇮🇪" },
+  { code: "+64", country: "New Zealand", flag: "🇳🇿" },
+  { code: "+60", country: "Malaysia", flag: "🇲🇾" },
+  { code: "+66", country: "Thailand", flag: "🇹🇭" },
+  { code: "+84", country: "Vietnam", flag: "🇻🇳" },
+  { code: "+62", country: "Indonesia", flag: "🇮🇩" },
+  { code: "+90", country: "Turkey", flag: "🇹🇷" },
+  { code: "+30", country: "Greece", flag: "🇬🇷" },
+  { code: "+43", country: "Austria", flag: "🇦🇹" },
+  { code: "+32", country: "Belgium", flag: "🇧🇪" },
+  { code: "+351", country: "Portugal", flag: "🇵🇹" },
+  { code: "+48", country: "Poland", flag: "🇵🇱" },
+  { code: "+36", country: "Hungary", flag: "🇭🇺" },
+  { code: "+420", country: "Czech Republic", flag: "🇨🇿" },
+  { code: "+358", country: "Finland", flag: "🇫🇮" },
+  { code: "+972", country: "Israel", flag: "🇮🇱" },
+  { code: "+92", country: "Pakistan", flag: "🇵🇰" },
+  { code: "+880", country: "Bangladesh", flag: "🇧🇩" },
+  { code: "+94", country: "Sri Lanka", flag: "🇱🇰" },
+  { code: "+977", country: "Nepal", flag: "🇳🇵" },
+  { code: "+20", country: "Egypt", flag: "🇪🇬" },
+  { code: "+234", country: "Nigeria", flag: "🇳🇬" },
+  { code: "+254", country: "Kenya", flag: "🇰🇪" },
+  { code: "+212", country: "Morocco", flag: "🇲🇦" },
+  { code: "+54", country: "Argentina", flag: "🇦🇷" },
+  { code: "+52", country: "Mexico", flag: "🇲🇽" },
+  { code: "+56", country: "Chile", flag: "🇨🇱" },
+  { code: "+57", country: "Colombia", flag: "🇨🇴" },
+  { code: "+51", country: "Peru", flag: "🇵🇪" },
+];
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    countryCode: "+91",
     phone: "",
     company: "",
     subject: "",
@@ -48,6 +110,7 @@ export default function ContactPage() {
       setFormData({
         name: "",
         email: "",
+        countryCode: "+91",
         phone: "",
         company: "",
         subject: "",
@@ -223,16 +286,44 @@ export default function ContactPage() {
                         <label htmlFor="phone" className="text-sm font-medium">
                           Phone Number <span className="text-primary">*</span>
                         </label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          placeholder="+91 98765 43210"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          required
-                          className="rounded-xl border-foreground/10 bg-background/70 backdrop-blur-sm"
-                        />
+                        <div className="flex gap-2">
+                          <Select
+                            value={formData.countryCode}
+                            onValueChange={(val) =>
+                              setFormData((prev) => ({
+                                ...prev,
+                                countryCode: val,
+                              }))
+                            }
+                          >
+                            <SelectTrigger className="w-[100px] rounded-xl border-foreground/10 bg-background/70 backdrop-blur-sm">
+                              <SelectValue placeholder="Code" />
+                            </SelectTrigger>
+                            <SelectContent className="max-h-[300px]">
+                              {countryCodes.map((item) => (
+                                <SelectItem
+                                  key={item.code + item.country}
+                                  value={item.code}
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <span>{item.flag}</span>
+                                    <span>{item.code}</span>
+                                  </span>
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <Input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            placeholder="98765 43210"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
+                            className="flex-1 rounded-xl border-foreground/10 bg-background/70 backdrop-blur-sm"
+                          />
+                        </div>
                       </div>
 
                       <div className="space-y-2">

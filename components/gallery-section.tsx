@@ -3,55 +3,32 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
-const galleryImages = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
-    alt: "Modern Living Room",
-    category: "Living",
-    span: "lg:col-span-2 lg:row-span-2",
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80",
-    alt: "Elegant Bedroom",
-    category: "Bedroom",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80",
-    alt: "Minimalist Dining",
-    category: "Dining",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80",
-    alt: "Cozy Reading Nook",
-    category: "Living",
-    span: "col-span-1 lg:row-span-2",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&q=80",
-    alt: "Home Office",
-    category: "Office",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&q=80",
-    alt: "Designer Sofa",
-    category: "Living",
-    span: "col-span-1 row-span-1",
-  },
-];
+interface GalleryItem {
+  id: string;
+  src: string;
+  alt: string;
+  category: string;
+  span?: string;
+}
 
-export function GallerySection() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+interface GallerySectionProps {
+  images: GalleryItem[];
+}
+
+export function GallerySection({ images }: GallerySectionProps) {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  // Default spans for the first 6 images to maintain the masonry-like grid
+  const defaultSpans = [
+    "lg:col-span-2 lg:row-span-2",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-1",
+    "col-span-1 lg:row-span-2",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-1",
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,6 +40,14 @@ export function GallerySection() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  if (!images || images.length === 0) return null;
+
+  // Take only first 6 for the homepage section
+  const displayImages = images.slice(0, 6).map((img, idx) => ({
+    ...img,
+    span: img.span || defaultSpans[idx] || "col-span-1 row-span-1",
+  }));
 
   return (
     <section
@@ -95,31 +80,37 @@ export function GallerySection() {
 
           <Link
             href="/gallery"
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold shadow-md hover:shadow-lg hover:bg-primary/90 transition-all duration-300 self-start lg:self-auto"
+            className="inline-flex w-fit whitespace-nowrap items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold shadow-md hover:shadow-lg hover:bg-primary/90 transition-all duration-300 self-start lg:self-auto"
           >
             View Full Gallery
           </Link>
 
           <div className="flex flex-wrap gap-3 lg:justify-end">
-            {["All", "Living", "Bedroom", "Dining", "Office"].map(
-              (filter, i) => (
-                <button
-                  key={filter}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                    i === 0
-                      ? "bg-foreground text-background"
-                      : "bg-background/80 text-foreground hover:bg-foreground hover:text-background"
-                  }`}
-                >
-                  {filter}
-                </button>
-              )
-            )}
+            {[
+              "All",
+              "Living room collection",
+              "Bedroom collection",
+              "Dining collection",
+              "Accent Furniture",
+              "Luxury carved pieces",
+              "Custom projects",
+            ].map((filter, i) => (
+              <button
+                key={filter}
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  i === 0
+                    ? "bg-foreground text-background"
+                    : "bg-background/80 text-foreground hover:bg-foreground hover:text-background"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 auto-rows-[160px] sm:auto-rows-[180px] lg:auto-rows-[220px]">
-          {galleryImages.map((image, index) => (
+          {displayImages.map((image, index) => (
             <div
               key={image.id}
               className={`group relative rounded-2xl lg:rounded-3xl overflow-hidden cursor-pointer ${

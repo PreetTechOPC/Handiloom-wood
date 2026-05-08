@@ -4,108 +4,69 @@ import { useState, useRef, useEffect } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Product } from "@/lib/products";
 
-const products = [
+const localProducts = [
   {
-    id: 1,
+    id: "1",
     name: "Milano Lounge Chair",
     category: "Seating",
-    purpose: "Lounge & reading",
-    summary:
+    subcategory: "Lounge & reading",
+    shortDescription:
       "Tailored curves with deep comfort, kiln-dried frame, and soft boucle upholstery for daily lounging.",
-    highlights: ["Italian boucle", "Solid oak base", "Feather-wrapped seat"],
-    image:
-      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&q=80",
-    badge: "Best Seller",
-    badgeColor: "bg-primary",
-    rating: 4.9,
-    reviews: 124,
+    materials: ["Italian boucle", "Solid oak base", "Feather-wrapped seat"],
+    images: ["https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&q=80"],
+    featured: true,
+    price: 45000,
     slug: "milano-lounge-chair",
+    inStock: true,
+    leadTime: "2-4 weeks",
+    tags: ["Best Seller"]
   },
   {
-    id: 2,
+    id: "2",
     name: "Oslo Dining Table",
     category: "Tables",
-    purpose: "Dining & hosting",
-    summary:
+    subcategory: "Dining & hosting",
+    shortDescription:
       "Slim Scandinavian profile with chamfered edges and a floating top for six guests.",
-    highlights: ["Solid ash", "Seats 6", "Matte lacquer"],
-    image:
-      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80",
-    badge: "New",
-    badgeColor: "bg-foreground",
-    rating: 4.8,
-    reviews: 89,
+    materials: ["Solid ash", "Seats 6", "Matte lacquer"],
+    images: ["https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80"],
+    featured: true,
+    price: 85000,
     slug: "oslo-dining-table",
+    inStock: true,
+    leadTime: "4-6 weeks",
+    tags: ["New"]
   },
   {
-    id: 3,
+    id: "3",
     name: "Vienna Sofa Set",
     category: "Living Room",
-    purpose: "Living room centerpiece",
-    summary:
+    subcategory: "Living room centerpiece",
+    shortDescription:
       "Low, generous silhouette with bench seat and down blend cushions for laid-back hosting.",
-    highlights: ["Performance linen", "Bench cushion", "Modular arms"],
-    image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
-    badge: null,
-    rating: 5.0,
-    reviews: 201,
+    materials: ["Performance linen", "Bench cushion", "Modular arms"],
+    images: ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"],
+    featured: true,
+    price: 125000,
     slug: "vienna-sofa-set",
-  },
-  {
-    id: 4,
-    name: "Nordic Bookshelf",
-    category: "Storage",
-    purpose: "Display & storage",
-    summary:
-      "Open shelving with asymmetrical bays for objects, books, and media components.",
-    highlights: ["Solid oak", "Cable passthrough", "Adjustable shelves"],
-    image:
-      "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=600&q=80",
-    badge: "Popular",
-    badgeColor: "bg-green-600",
-    rating: 4.7,
-    reviews: 156,
-    slug: "nordic-bookshelf",
-  },
-  {
-    id: 5,
-    name: "Zen Coffee Table",
-    category: "Tables",
-    purpose: "Centerpiece & layering",
-    summary:
-      "Softly beveled oval top with inset plinth base for a grounded, sculptural presence.",
-    highlights: ["Water-based finish", "Rounded edges", "Plinth base"],
-    image:
-      "https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=600&q=80",
-    badge: null,
-    rating: 4.8,
-    reviews: 92,
-    slug: "zen-coffee-table",
-  },
-  {
-    id: 6,
-    name: "Aurora Bed Frame",
-    category: "Bedroom",
-    purpose: "Sleep & sanctuary",
-    summary:
-      "Channel-tufted headboard with gently wrapped edges and a quiet floating platform.",
-    highlights: ["Channel upholstery", "Solid hardwood slats", "No-box-spring"],
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80",
-    badge: "Best Seller",
-    badgeColor: "bg-primary",
-    rating: 4.9,
-    reviews: 178,
-    slug: "aurora-bed-frame",
+    inStock: true,
+    leadTime: "6-8 weeks",
+    tags: []
   },
 ];
 
-export function ProductsSection() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+interface ProductsSectionProps {
+  products?: Product[];
+}
+
+export function ProductsSection({ products: initialProducts }: ProductsSectionProps) {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const displayProducts = (initialProducts && initialProducts.length > 0) ? initialProducts : (localProducts as unknown as Product[]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -164,7 +125,7 @@ export function ProductsSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {products.map((product, index) => (
+          {displayProducts.map((product, index) => (
             <div
               key={product.id}
               className={`group relative bg-background rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 ${
@@ -179,18 +140,18 @@ export function ProductsSection() {
               {/* Image Container */}
               <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                 <img
-                  src={product.image || "/placeholder.svg"}
+                  src={product.images[0] || "/placeholder.svg"}
                   alt={product.name}
                   className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/0 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {product.badge && (
+                {product.featured && (
                   <span
-                    className={`absolute top-4 left-4 px-4 py-1.5 ${product.badgeColor} text-white text-xs font-semibold rounded-full shadow-lg`}
+                    className={`absolute top-4 left-4 px-4 py-1.5 bg-primary text-white text-xs font-semibold rounded-full shadow-lg`}
                   >
-                    {product.badge}
+                    Featured
                   </span>
                 )}
 
@@ -223,10 +184,10 @@ export function ProductsSection() {
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                     <span className="text-sm font-medium text-foreground">
-                      {product.rating}
+                      5.0
                     </span>
                     <span className="text-sm text-muted-foreground">
-                      ({product.reviews})
+                      (100+)
                     </span>
                   </div>
                 </div>
@@ -235,14 +196,14 @@ export function ProductsSection() {
                   {product.name}
                 </h3>
                 <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4">
-                  {product.summary}
+                  {product.shortDescription}
                 </p>
 
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs text-foreground/70 px-3 py-1 rounded-full bg-foreground/5 border border-foreground/5">
-                    {product.purpose}
+                    {product.subcategory}
                   </span>
-                  {product.highlights.map((item) => (
+                  {product.materials.slice(0, 2).map((item) => (
                     <span
                       key={item}
                       className="text-xs text-foreground/70 px-3 py-1 rounded-full bg-foreground/5 border border-foreground/5"

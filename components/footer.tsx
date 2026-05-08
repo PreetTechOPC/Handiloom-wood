@@ -126,13 +126,13 @@ export function Footer() {
 
             <div className="space-y-3 sm:space-y-4">
               <a
-                href="mailto:info@handiloomwood.com"
+                href="mailto:export@handiloomwood.com"
                 className="flex items-center gap-4 text-background/60 hover:text-primary transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
-                <span>info@handiloomwood.com</span>
+                <span>export@handiloomwood.com</span>
               </a>
               <a
                 href="tel:+919876543210"
