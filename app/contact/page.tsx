@@ -454,11 +454,8 @@ export default function ContactPage() {
                       Mon-Sat · 9:00 AM - 6:00 PM IST
                     </p>
                     <div className="flex flex-col text-primary font-medium text-sm">
-                      <a href="tel:+919876543210" className="hover:underline">
-                        +91 98765 43210
-                      </a>
-                      <a href="tel:+919876543211" className="hover:underline">
-                        +91 98765 43211
+                      <a href="tel:+919917524064" className="hover:underline">
+                        +91 99175 24064
                       </a>
                     </div>
                   </div>
@@ -477,17 +474,17 @@ export default function ContactPage() {
                     </p>
                     <div className="flex flex-col text-primary font-medium text-sm">
                       <a
-                        href="mailto:info@handiloomwood.com"
+                        href="mailto:export@handiloomwood.com"
                         className="hover:underline"
                       >
-                        info@handiloomwood.com
+                        export@handiloomwood.com
                       </a>
-                      <a
+                      {/* <a
                         href="mailto:sales@handiloomwood.com"
                         className="hover:underline"
                       >
                         sales@handiloomwood.com
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
@@ -504,8 +501,9 @@ export default function ContactPage() {
                       Manufacturing facility
                     </p>
                     <p className="text-foreground/90 text-sm leading-relaxed">
-                      123, Industrial Area, Phase 2<br />
-                      Jodhpur, Rajasthan 342001
+                      Shop 1, Devidayal Apartment,<br />
+                      Telipura Road, Ramnagar,<br />
+                      Nainital, Uttarakhand 244715
                       <br />
                       India
                     </p>
@@ -547,13 +545,13 @@ export default function ContactPage() {
 
             <div className="mt-8 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
               <a
-                href="tel:+919876543210"
+                href="tel:+919917524064"
                 className="flex items-center justify-center gap-2 rounded-full bg-primary/10 px-6 py-4 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors border border-primary/20"
               >
                 <Headphones className="h-5 w-5" /> Call Sales Team
               </a>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919411300058"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-full bg-primary/10 px-6 py-4 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors border border-primary/20"

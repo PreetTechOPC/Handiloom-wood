@@ -20,9 +20,10 @@ import {
   getProductsByCategory as getLocalProductsByCategory,
 } from "@/lib/products";
 import { ProductGallery } from "@/components/ProductGallery";
-import { hygraph, GET_PRODUCT_BY_SLUG, GET_ALL_PRODUCTS } from "@/lib/hygraph";
+import { hygraph, GET_PRODUCT_BY_SLUG, GET_ALL_PRODUCTS, GET_PRODUCT_BY_ID } from "@/lib/hygraph";
 
 export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   try {
@@ -44,9 +45,42 @@ export async function generateStaticParams() {
 
 async function getProduct(slug: string) {
   try {
-    const { products } = await hygraph.request<{ products: any[] }>(GET_PRODUCT_BY_SLUG, { slug });
-    const product = products?.[0];
-    if (!product) return null;
+    const decodedSlug = decodeURIComponent(slug);
+    const trimmedSlug = decodedSlug.trim();
+    
+    // 1. Try fetching by exact decoded slug (handles spaces if they exist in DB)
+    const { products } = await hygraph.request<{ products: any[] }>(GET_PRODUCT_BY_SLUG, { slug: decodedSlug });
+    let product = products?.[0];
+    
+    // 2. Try fetching by trimmed slug if different
+    if (!product && decodedSlug !== trimmedSlug) {
+      const { products: trimmedProducts } = await hygraph.request<{ products: any[] }>(GET_PRODUCT_BY_SLUG, { slug: trimmedSlug });
+      product = trimmedProducts?.[0];
+    }
+    
+    // 3. If not found, try fetching by ID directly
+    if (!product) {
+      try {
+        const { products: productsById } = await hygraph.request<{ products: any[] }>(GET_PRODUCT_BY_ID, { id: trimmedSlug });
+        product = productsById?.[0];
+      } catch (e) {
+        // Ignore ID format errors
+      }
+    }
+    
+    // 4. Try stripping 'product-' prefix
+    if (!product && trimmedSlug.startsWith('product-')) {
+      const id = trimmedSlug.replace('product-', '');
+      const { products: productsById } = await hygraph.request<{ products: any[] }>(GET_PRODUCT_BY_ID, { id });
+      product = productsById?.[0];
+    }
+    
+    // 5. Fallback to local products
+    if (!product) {
+      product = getLocalProductBySlug(trimmedSlug) || getLocalProductBySlug(decodedSlug);
+      if (!product) return null;
+      return product;
+    }
 
     const ensureArray = (val: any) => {
       if (Array.isArray(val)) return val;

@@ -61,6 +61,32 @@ export const GET_PRODUCT_BY_SLUG = `
   }
 `;
 
+export const GET_PRODUCT_BY_ID = `
+  query GetProductById($id: ID!) {
+    products(where: { id: $id }, first: 1) {
+      id
+      name
+      slug
+      category
+      subcategory
+      price
+      description
+      shortDescription
+      images {
+        url
+      }
+      materials
+      colors
+      inStock
+      featured
+      customizable
+      leadTime
+      tags
+      dimensions
+    }
+  }
+`;
+
 export const GET_FEATURED_PRODUCTS = `
   query GetFeaturedProducts {
     products(where: { featured: true }, first: 10) {
