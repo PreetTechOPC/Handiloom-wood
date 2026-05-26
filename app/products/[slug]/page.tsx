@@ -188,12 +188,12 @@ export default async function ProductDetailPage({
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur-sm p-4 space-y-1 transition-all hover:border-primary/30">
-                  <Package className="h-5 w-5 text-primary" />
+                  <Truck className="h-5 w-5 text-primary" />
                   <p className="text-sm font-semibold">
-                    {product.inStock ? "Ready to ship" : "Made to order"}
+                    {product.inStock ? "Fast Delivery" : "Standard Delivery"}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Packed securely for export
+                    Nationwide shipping available
                   </p>
                 </div>
                 <div className="rounded-2xl border border-border/70 bg-background/80 backdrop-blur-sm p-4 space-y-1 transition-all hover:border-primary/30">
