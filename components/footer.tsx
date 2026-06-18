@@ -234,10 +234,21 @@ export function Footer() {
 
       <div className="border-t border-background/10">
         <div className="container mx-auto px-4 sm:px-6 py-5 sm:py-6">
-          <div className="flex flex-col md:flex-row justify-center items-center gap-2">
-            <p className="text-background/40 text-xs sm:text-sm text-center">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-background/40 text-xs sm:text-sm text-center md:text-left">
               © 2025 Handiloomwood. All rights reserved. Crafted with passion &
               precision.
+            </p>
+            <p className="text-background/40 text-xs sm:text-sm text-center md:text-right">
+              Design & Developed by{" "}
+              <a
+                href="https://preettech.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-primary transition-colors hover:underline font-medium"
+              >
+                Preet Tech
+              </a>
             </p>
           </div>
         </div>
