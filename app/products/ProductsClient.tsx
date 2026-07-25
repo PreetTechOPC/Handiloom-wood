@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -20,11 +21,12 @@ interface ProductsClientProps {
 }
 
 export function ProductsClient({ initialProducts }: ProductsClientProps) {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedSubcategories, setSelectedSubcategories] = useState<string[]>(
-    []
-  );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(categoryParam);
+  const [selectedSubcategories, setSelectedSubcategories] = useState<string[]>([]);
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 200000]);
   const [showInStockOnly, setShowInStockOnly] = useState(false);
@@ -32,12 +34,35 @@ export function ProductsClient({ initialProducts }: ProductsClientProps) {
   const [gridView, setGridView] = useState<"grid" | "large">("grid");
   const [showFilters, setShowFilters] = useState(true);
 
-  // Dynamic category counts
+  useEffect(() => {
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    }
+  }, [categoryParam]);
+
+  const slugify = (str: string) =>
+    str ? str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") : "";
+
+  // Dynamic category counts with flexible matching
   const categories = useMemo(() => {
-    return staticCategories.map(cat => ({
-      ...cat,
-      count: initialProducts.filter(p => p.category === cat.id).length
-    }));
+    return staticCategories.map((cat) => {
+      const normCatId = slugify(cat.id);
+      const normCatName = slugify(cat.name);
+      const count = initialProducts.filter((p) => {
+        const pCat = slugify(p.category);
+        const pSub = slugify(p.subcategory);
+        return (
+          pCat === normCatId ||
+          pCat === normCatName ||
+          pSub === normCatId ||
+          pSub === normCatName
+        );
+      }).length;
+      return {
+        ...cat,
+        count,
+      };
+    });
   }, [initialProducts]);
 
   const filteredProducts = useMemo(() => {
@@ -56,9 +81,20 @@ export function ProductsClient({ initialProducts }: ProductsClientProps) {
         return false;
       }
 
-      // Category filter
-      if (selectedCategory && product.category !== selectedCategory) {
-        return false;
+      // Category filter (support slug, name, category, or subcategory)
+      if (selectedCategory) {
+        const normSelected = slugify(selectedCategory);
+        const normCat = slugify(product.category);
+        const normSubcat = slugify(product.subcategory);
+
+        const isCategoryMatch =
+          normCat === normSelected ||
+          normSubcat === normSelected ||
+          (product.tags && product.tags.some((t) => slugify(t) === normSelected));
+
+        if (!isCategoryMatch) {
+          return false;
+        }
       }
 
       // Subcategory filter

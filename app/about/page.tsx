@@ -377,7 +377,7 @@ export default function AboutPage() {
             <div className="relative max-w-md mx-auto lg:mx-0 w-full overflow-hidden rounded-3xl border border-border/70 bg-secondary/40 shadow-xl aspect-[4/5]">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 via-transparent to-background pointer-events-none" />
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80"
+                src="/About us.PNG"
                 alt="Arkan Khan - Founder & Managing Director"
                 className="h-full w-full object-cover object-top"
               />
@@ -394,7 +394,7 @@ export default function AboutPage() {
               </p>
               <div className="flex items-center gap-3 pt-2">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80"
+                  src="/About us.PNG"
                   alt="Arkan Khan"
                   className="h-10 w-10 rounded-full object-cover border-2 border-primary/20"
                 />
