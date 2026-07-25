@@ -9,51 +9,83 @@ import { Product } from "@/lib/products";
 const localProducts = [
   {
     id: "1",
-    name: "Milano Lounge Chair",
-    category: "Seating",
-    subcategory: "Lounge & reading",
+    name: "Marble Coffee Tables",
+    category: "Marble Décor",
+    subcategory: "Coffee Tables",
     shortDescription:
-      "Tailored curves with deep comfort, kiln-dried frame, and soft boucle upholstery for daily lounging.",
-    materials: ["Italian boucle", "Solid oak base", "Feather-wrapped seat"],
-    images: ["https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&q=80"],
-    featured: true,
-    price: 45000,
-    slug: "milano-lounge-chair",
-    inStock: true,
-    leadTime: "2-4 weeks",
-    tags: ["Best Seller"]
-  },
-  {
-    id: "2",
-    name: "Oslo Dining Table",
-    category: "Tables",
-    subcategory: "Dining & hosting",
-    shortDescription:
-      "Slim Scandinavian profile with chamfered edges and a floating top for six guests.",
-    materials: ["Solid ash", "Seats 6", "Matte lacquer"],
+      "Hand-carved solid natural marble coffee tables designed for luxury living interiors.",
+    materials: ["Italian Marble", "Natural Stone"],
     images: ["https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80"],
     featured: true,
-    price: 85000,
-    slug: "oslo-dining-table",
+    price: 65000,
+    slug: "marble-coffee-tables",
     inStock: true,
-    leadTime: "4-6 weeks",
+    leadTime: "2-4 weeks",
     tags: ["New"]
   },
   {
-    id: "3",
-    name: "Vienna Sofa Set",
-    category: "Living Room",
-    subcategory: "Living room centerpiece",
+    id: "2",
+    name: "Marble Side Tables",
+    category: "Marble Décor",
+    subcategory: "Side Tables",
     shortDescription:
-      "Low, generous silhouette with bench seat and down blend cushions for laid-back hosting.",
-    materials: ["Performance linen", "Bench cushion", "Modular arms"],
+      "Sculptural natural marble side tables highlighting fine craftsmanship and organic stone veins.",
+    materials: ["Carrara Marble", "Brass Inlay"],
+    images: ["https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&q=80"],
+    featured: true,
+    price: 38000,
+    slug: "marble-side-tables",
+    inStock: true,
+    leadTime: "2-3 weeks",
+    tags: ["Featured"]
+  },
+  {
+    id: "3",
+    name: "Travertine Collection",
+    category: "Stone Furniture",
+    subcategory: "Bespoke Travertine",
+    shortDescription:
+      "Minimalist honed travertine tables and decorative architectural pieces for modern spaces.",
+    materials: ["Honed Travertine", "Solid Stone"],
     images: ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"],
     featured: true,
-    price: 125000,
-    slug: "vienna-sofa-set",
+    price: 85000,
+    slug: "travertine-collection",
     inStock: true,
-    leadTime: "6-8 weeks",
-    tags: []
+    leadTime: "3-5 weeks",
+    tags: ["Popular"]
+  },
+  {
+    id: "4",
+    name: "Onyx Collection",
+    category: "Bespoke Stone",
+    subcategory: "Translucent Onyx",
+    shortDescription:
+      "Exquisite back-lit translucent onyx décor, platters, and luxury accent furniture.",
+    materials: ["Green & Honey Onyx"],
+    images: ["https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80"],
+    featured: true,
+    price: 95000,
+    slug: "onyx-collection",
+    inStock: true,
+    leadTime: "3-4 weeks",
+    tags: ["Exclusive"]
+  },
+  {
+    id: "5",
+    name: "Luxury Chess Sets",
+    category: "Marble Décor",
+    subcategory: "Tableware & Games",
+    shortDescription:
+      "Handmade solid marble and onyx chess boards crafted with precision for luxury collectors.",
+    materials: ["Natural Marble", "Onyx"],
+    images: ["https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600&q=80"],
+    featured: true,
+    price: 28000,
+    slug: "luxury-chess-sets",
+    inStock: true,
+    leadTime: "1-2 weeks",
+    tags: ["Handcrafted"]
   },
 ];
 
@@ -138,7 +170,7 @@ export function ProductsSection({ products: initialProducts }: ProductsSectionPr
               onMouseLeave={() => setHoveredId(null)}
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+              <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                 <img
                   src={product.images[0] || "/placeholder.svg"}
                   alt={product.name}

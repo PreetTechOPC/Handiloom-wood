@@ -39,7 +39,7 @@ export function ProductGallery({ images, name, featured, inStock }: ProductGalle
           }}
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           modules={[FreeMode, Navigation, Thumbs, EffectFade]}
-          className="aspect-square w-full"
+          className="aspect-[4/5] w-full"
         >
           {images.map((img, idx) => (
             <SwiperSlide key={idx} className="relative overflow-hidden">
@@ -92,7 +92,7 @@ export function ProductGallery({ images, name, featured, inStock }: ProductGalle
             {images.map((img, idx) => (
               <SwiperSlide 
                 key={idx} 
-                className="relative aspect-square cursor-pointer rounded-2xl overflow-hidden border-2 border-transparent transition-all opacity-60 [.swiper-slide-thumb-active&]:opacity-100 [.swiper-slide-thumb-active&]:border-primary"
+                className="relative aspect-[4/5] cursor-pointer rounded-2xl overflow-hidden border-2 border-transparent transition-all opacity-60 [.swiper-slide-thumb-active&]:opacity-100 [.swiper-slide-thumb-active&]:border-primary"
               >
                 <Image
                   src={img}

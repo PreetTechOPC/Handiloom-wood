@@ -379,7 +379,7 @@ export function ProductsClient({ initialProducts }: ProductsClientProps) {
                       className={`relative ${
                         gridView === "large"
                           ? "aspect-[16/10]"
-                          : "aspect-square"
+                          : "aspect-[4/5]"
                       } overflow-hidden`}
                     >
                       <Image

@@ -175,40 +175,46 @@ export function AboutSection() {
                 About Us
               </p>
               <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] text-balance">
-                Where Tradition Meets{" "}
-                <span className="text-primary">Modern Design</span>
+                Where Natural Stone <span className="text-primary">Becomes Art</span>
               </h2>
             </div>
 
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Founded in 2009, Artisan Living began with a simple vision: to
-              create furniture that stands the test of time. We believe that
-              every home deserves pieces that are not just functional, but works
-              of art that tell a story.
+              <strong className="text-foreground font-semibold">HANDILOOMWOOD</strong> creates handcrafted marble décor and bespoke stone furniture using carefully selected natural stones. Every piece is crafted by skilled artisans to elevate residential, hospitality, and commercial interiors across the world.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 py-8 border-y border-border">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-8 border-y border-border">
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-                  <Counter end={500} suffix="+" />
+                <p className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+                  <Counter end={50} suffix="+" />
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Unique Designs
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                  Luxury Collections
                 </p>
               </div>
-              <div className="text-center border-x border-border">
-                <p className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-                  <Counter end={98} suffix="%" />
+              <div className="text-center border-l border-border">
+                <p className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+                  <Counter end={15} suffix="+" />
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Satisfaction
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                  Countries Served
                 </p>
               </div>
-              <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-                  <Counter end={25} suffix="+" />
+              <div className="text-center border-l border-border">
+                <p className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+                  100%
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">Countries</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                  Natural Stone
+                </p>
+              </div>
+              <div className="text-center border-l border-border">
+                <p className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+                  OEM
+                </p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                  & Private Label
+                </p>
               </div>
             </div>
 

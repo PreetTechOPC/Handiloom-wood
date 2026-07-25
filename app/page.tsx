@@ -16,7 +16,7 @@ async function getGalleryItems() {
       id: item.id,
       src: item.image?.url || "https://images.unsplash.com/photo-1615875605825-5eb9bb5d52ac?w=800&q=80",
       alt: item.title || "Gallery Image",
-      category: item.category || "Living room collection"
+      category: item.category || "All Collections"
     }));
   } catch (error) {
     console.error("Failed to fetch gallery items:", error);

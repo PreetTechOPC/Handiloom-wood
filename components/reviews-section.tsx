@@ -6,55 +6,29 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const reviews = [
   {
     id: 1,
-    name: "Sarah Mitchell",
-    location: "New York, USA",
+    name: "Interior Designer",
+    location: "USA",
     rating: 5,
     review:
-      "The quality of craftsmanship is absolutely exceptional. Our Milano chair has become the centerpiece of our living room. Every guest comments on its beauty. Worth every penny!",
+      "HANDILOOMWOOD delivered exceptional craftsmanship with premium natural stone. Every piece exceeded our expectations.",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-    product: "Milano Lounge Chair",
-    productImage:
-      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=200&q=80",
-  },
-  {
-    id: 2,
-    name: "James Thompson",
-    location: "London, UK",
-    rating: 5,
-    review:
-      "I've never experienced such attention to detail. The Oslo dining table is stunning and has transformed our dining experience completely. A true masterpiece of modern design.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
-    product: "Oslo Dining Table",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80",
+    product: "Natural Stone Decor & Bespoke Furniture",
     productImage:
       "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=200&q=80",
   },
   {
-    id: 3,
-    name: "Emily Chen",
-    location: "Toronto, Canada",
+    id: 2,
+    name: "Luxury Retailer",
+    location: "Australia",
     rating: 5,
     review:
-      "From the ordering process to delivery, everything was seamless. The Vienna sofa exceeded all our expectations. Truly artisan quality that you can feel.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
-    product: "Vienna Sofa Set",
-    productImage:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&q=80",
-  },
-  {
-    id: 4,
-    name: "Michael Rodriguez",
-    location: "Miami, USA",
-    rating: 5,
-    review:
-      "The customer service was outstanding and the Aurora bed frame is absolutely beautiful. It's transformed our bedroom into a luxury sanctuary. Highly recommend!",
+      "Their marble collections fit perfectly into our premium showroom.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-    product: "Aurora Bed Frame",
+    product: "Marble Décor & Custom Stone Pieces",
     productImage:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=200&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&q=80",
   },
 ];
 
@@ -177,7 +151,7 @@ export function ReviewsSection() {
                       </div>
                       <div className="text-left">
                         <p className="text-xs text-muted-foreground">
-                          Purchased
+                          Verified Client
                         </p>
                         <p className="text-sm font-medium text-foreground">
                           {currentReview.product}

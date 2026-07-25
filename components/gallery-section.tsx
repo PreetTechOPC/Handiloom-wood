@@ -41,10 +41,20 @@ export function GallerySection({ images }: GallerySectionProps) {
     return () => observer.disconnect();
   }, []);
 
+  const [selectedFilter, setSelectedFilter] = useState("All Collections");
+
   if (!images || images.length === 0) return null;
 
-  // Take only first 6 for the homepage section
-  const displayImages = images.slice(0, 6).map((img, idx) => ({
+  const filteredImagesList =
+    selectedFilter === "All Collections"
+      ? images
+      : images.filter(
+          (img) =>
+            img.category?.toLowerCase() === selectedFilter.toLowerCase()
+        );
+
+  // Take first 6 of filtered images for the homepage grid display
+  const displayImages = filteredImagesList.slice(0, 6).map((img, idx) => ({
     ...img,
     span: img.span || defaultSpans[idx] || "col-span-1 row-span-1",
   }));
@@ -82,30 +92,58 @@ export function GallerySection({ images }: GallerySectionProps) {
             href="/gallery"
             className="inline-flex w-fit whitespace-nowrap items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold shadow-md hover:shadow-lg hover:bg-primary/90 transition-all duration-300 self-start lg:self-auto"
           >
-            View Full Gallery
+            Explore Collection ⭐
           </Link>
 
-          <div className="flex flex-wrap gap-3 lg:justify-end">
+          {/* Desktop Filter Pills */}
+          <div className="hidden md:flex flex-wrap gap-2.5 lg:justify-end">
             {[
-              "All",
-              "Living room collection",
-              "Bedroom collection",
-              "Dining collection",
-              "Accent Furniture",
-              "Luxury carved pieces",
-              "Custom projects",
-            ].map((filter, i) => (
+              "All Collections",
+              "Furniture",
+              "Stone Décor",
+              "White Marble",
+              "Travertine",
+              "Green Onyx",
+              "Hospitality",
+              "Custom Projects",
+            ].map((filter) => (
               <button
                 key={filter}
+                onClick={() => setSelectedFilter(filter)}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  i === 0
-                    ? "bg-foreground text-background"
-                    : "bg-background/80 text-foreground hover:bg-foreground hover:text-background"
+                  selectedFilter === filter
+                    ? "bg-foreground text-background shadow-md"
+                    : "bg-background/80 text-foreground hover:bg-foreground hover:text-background border border-border/40"
                 }`}
               >
                 {filter}
               </button>
             ))}
+          </div>
+
+          {/* Mobile & Tablet Dropdown Menu */}
+          <div className="md:hidden w-full sm:w-auto">
+            <select
+              value={selectedFilter}
+              onChange={(e) => setSelectedFilter(e.target.value)}
+              className="w-full sm:w-64 px-5 py-3 rounded-full text-sm font-medium bg-background border border-border/80 text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2371717A%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1.25rem_center] bg-no-repeat pr-10"
+              aria-label="Filter gallery by category"
+            >
+              {[
+                "All Collections",
+                "Furniture",
+                "Stone Décor",
+                "White Marble",
+                "Travertine",
+                "Green Onyx",
+                "Hospitality",
+                "Custom Projects",
+              ].map((filter) => (
+                <option key={filter} value={filter}>
+                  {filter}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 

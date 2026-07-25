@@ -20,7 +20,7 @@ export default async function GalleryPage() {
     initialImages = galleryItems.map((item) => ({
       id: item.id,
       src: item.image?.url || "https://images.unsplash.com/photo-1615875605825-5eb9bb5d52ac?w=800&q=80",
-      category: item.category || "Living room collection",
+      category: item.category || "All Collections",
       title: item.title || "Handcrafted Piece",
       description: item.description || "Beautifully designed custom furniture",
     }));

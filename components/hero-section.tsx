@@ -64,9 +64,9 @@ export function HeroSection() {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                Crafted to make every
+                Crafted from Nature.
                 <span className="block text-primary">
-                  space feel effortless.
+                  Designed for Timeless Luxury.
                 </span>
               </h1>
               <p
@@ -76,11 +76,7 @@ export function HeroSection() {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                At Handiloomwood, we believe furniture is more than just a
-                product — it’s a story of craftsmanship, culture, and
-                connection. We export high-quality wooden furniture, handcrafted
-                pieces, and customized designs worldwide, transforming hotels
-                and homes with beauty, durability, and character.
+                Handcrafted marble décor, tableware, furniture, and bespoke stone creations for luxury homes, hotels, architects, and retailers worldwide.
               </p>
             </div>
 

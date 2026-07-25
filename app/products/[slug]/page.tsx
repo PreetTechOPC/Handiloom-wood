@@ -414,7 +414,7 @@ export default async function ProductDetailPage({
                     className="group relative overflow-hidden rounded-3xl border border-border/60 bg-background/70 backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 duration-500"
                     style={{ animationDelay: `${idx * 100}ms` }}
                   >
-                    <div className="relative aspect-square overflow-hidden">
+                    <div className="relative aspect-[4/5] overflow-hidden">
                       <Image
                         src={relatedProduct.images[0]}
                         alt={relatedProduct.name}

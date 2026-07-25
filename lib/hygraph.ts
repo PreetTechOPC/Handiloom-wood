@@ -11,7 +11,7 @@ export const hygraph = new GraphQLClient(endpoint, {
 
 export const GET_ALL_PRODUCTS = `
   query GetAllProducts {
-    products(first: 1000) {
+    products(orderBy: createdAt_DESC, first: 1000) {
       id
       name
       slug
@@ -89,7 +89,7 @@ export const GET_PRODUCT_BY_ID = `
 
 export const GET_FEATURED_PRODUCTS = `
   query GetFeaturedProducts {
-    products(where: { featured: true }, first: 10) {
+    products(where: { featured: true }, orderBy: createdAt_DESC, first: 10) {
       id
       name
       slug
