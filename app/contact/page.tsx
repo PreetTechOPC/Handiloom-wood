@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
+import { DownloadCatalogueButton } from "@/components/download-catalogue-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -658,15 +659,11 @@ export default function ContactPage() {
                   <Send className="mr-2 h-4 w-4" /> Request a Quote
                 </Button>
               </Link>
-              <a href="mailto:export@handiloomwood.com">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-neutral-700 bg-neutral-900 text-white hover:bg-neutral-800 px-8 py-6 text-base font-semibold"
-                >
-                  Download Catalogue
-                </Button>
-              </a>
+              <DownloadCatalogueButton
+                size="lg"
+                variant="outline"
+                className="rounded-full border-neutral-700 bg-neutral-900 text-white hover:bg-neutral-800 px-8 py-6 text-base font-semibold"
+              />
             </div>
 
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 pt-6 text-xs text-neutral-300 border-t border-neutral-800/80">

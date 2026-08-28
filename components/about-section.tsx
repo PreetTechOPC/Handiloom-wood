@@ -110,7 +110,7 @@ export function AboutSection() {
               {/* Main Image with reveal animation */}
               <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1572297794908-f2ee5a2930d6?w=800&q=80"
+                  src="/IMG_7262.PNG"
                   alt="Our craftsman workshop"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                 />

@@ -155,7 +155,7 @@ export function HeroSection() {
             <div className="relative overflow-hidden rounded-[28px] border border-border/70 bg-secondary/40 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/18 via-transparent to-background" />
               <img
-                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80"
+                src="/IMG_7250.PNG"
                 alt="Curated interior"
                 className="h-full w-full object-cover"
               />

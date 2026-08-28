@@ -7,6 +7,7 @@ import {
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
+import { DownloadCatalogueButton } from "@/components/download-catalogue-button";
 import Link from "next/link";
 import {
   Shield,
@@ -134,15 +135,11 @@ export default function AboutPage() {
                     </span>
                   </Button>
                 </Link>
-                <a href="mailto:export@handiloomwood.com">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full border-foreground/20 bg-background/60 backdrop-blur-sm px-8 py-6 text-base font-semibold text-foreground hover:bg-foreground hover:text-background"
-                  >
-                    Download Catalogue
-                  </Button>
-                </a>
+                <DownloadCatalogueButton
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-foreground/20 bg-background/60 backdrop-blur-sm px-8 py-6 text-base font-semibold text-foreground hover:bg-foreground hover:text-background"
+                />
               </div>
 
               <div className="flex flex-wrap gap-3 pt-4 text-sm font-medium">
@@ -162,7 +159,7 @@ export default function AboutPage() {
             <div className="relative group">
               <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-border/60 bg-secondary/40 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1000&q=80"
+                  src="/IMG_7431.PNG"
                   alt="Handcrafted Natural Marble Article Table"
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
@@ -366,7 +363,7 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-[28px] border border-border/70 bg-secondary/40 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/18 via-transparent to-background" />
               <img
-                src="https://images.unsplash.com/photo-1572297794908-f2ee5a2930d6?w=1400&q=80"
+                src="/IMG_7271.PNG"
                 alt="Natural Marble Crafting Workshop"
                 className="h-full w-full object-cover"
               />
@@ -426,7 +423,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/18 via-transparent to-background" />
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/embed/oTMfOIMHxd0?si=PG1dtTq80rFcKyx5"
                 title="Handiloomwood Manufacturing Process"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -525,15 +522,11 @@ export default function AboutPage() {
                     Request a Quote
                   </Button>
                 </Link>
-                <a href="mailto:export@handiloomwood.com">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full border-foreground/15 bg-background/60 backdrop-blur-sm px-7 py-5 text-foreground font-semibold hover:bg-foreground hover:text-background"
-                  >
-                    Download Catalogue
-                  </Button>
-                </a>
+                <DownloadCatalogueButton
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-foreground/15 bg-background/60 backdrop-blur-sm px-7 py-5 text-foreground font-semibold hover:bg-foreground hover:text-background"
+                />
                 <a
                   href="https://wa.me/919411300058"
                   target="_blank"
