@@ -40,8 +40,15 @@ export function ProductsClient({ initialProducts }: ProductsClientProps) {
     }
   }, [categoryParam]);
 
-  const slugify = (str: string) =>
-    str ? str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") : "";
+  const slugify = (str: any) => {
+    if (!str) return "";
+    return String(str)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  };
 
   // Dynamic category counts with flexible matching
   const categories = useMemo(() => {
@@ -98,11 +105,14 @@ export function ProductsClient({ initialProducts }: ProductsClientProps) {
       }
 
       // Subcategory filter
-      if (
-        selectedSubcategories.length > 0 &&
-        !selectedSubcategories.includes(product.subcategory)
-      ) {
-        return false;
+      if (selectedSubcategories.length > 0) {
+        const normProductSub = slugify(product.subcategory);
+        const hasMatch = selectedSubcategories.some(
+          (sub) => slugify(sub) === normProductSub
+        );
+        if (!hasMatch) {
+          return false;
+        }
       }
 
       // Material filter
@@ -476,11 +486,8 @@ export function ProductsClient({ initialProducts }: ProductsClientProps) {
 
                       <div className="flex items-center justify-between pt-3 border-t border-border/50">
                         <div>
-                          <p className="font-serif text-xl text-foreground">
-                            ₹{(product.price / 1000).toFixed(0)}k
-                          </p>
-                          <p className="text-[10px] text-muted-foreground font-medium">
-                            {product.leadTime}
+                          <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                            Lead Time: {product.leadTime}
                           </p>
                         </div>
                         <div

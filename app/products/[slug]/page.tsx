@@ -432,8 +432,8 @@ export default async function ProductDetailPage({
                         {relatedProduct.name}
                       </h3>
                       <div className="flex items-center justify-between pt-2 border-t border-border/40">
-                        <p className="font-serif text-2xl text-foreground">
-                          ₹{(relatedProduct.price / 1000).toFixed(0)}k
+                        <p className="font-serif text-sm text-foreground">
+                          Lead Time
                         </p>
                         <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider">
                           {relatedProduct.leadTime}

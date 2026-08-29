@@ -192,11 +192,11 @@ export function Header() {
 
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-2">
-              <Link href="/contact">
-                <Button className="ml-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2.5 text-sm font-medium shine-effect overflow-hidden relative group">
+              <Button asChild className="ml-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2.5 text-sm font-medium shine-effect overflow-hidden relative group">
+                <Link href="/contact">
                   <span className="relative z-10">Get in Touch</span>
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -313,11 +313,11 @@ export function Header() {
               isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
           >
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-7 text-lg font-medium shadow-xl">
+            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-7 text-lg font-medium shadow-xl">
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                 Get in Touch
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

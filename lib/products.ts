@@ -26,23 +26,6 @@ export interface Product {
 export const categories = [
   { id: "wood-furniture", name: "Wood Furniture", count: 45 },
   { id: "marble-decor", name: "Marble Décor", count: 50 },
-  { id: "living-room-furniture", name: "Living Room Furniture", count: 30 },
-  { id: "dining-room-furniture", name: "Dining Room Furniture", count: 25 },
-  { id: "bedroom-furniture", name: "Bedroom Furniture", count: 20 },
-  { id: "console-tables", name: "Console Tables", count: 18 },
-  { id: "coffee-tables", name: "Coffee Tables", count: 24 },
-  { id: "side-tables", name: "Side Tables", count: 22 },
-  { id: "outdoor-furniture", name: "Outdoor Furniture", count: 15 },
-  { id: "custom-furniture", name: "Custom Furniture", count: 12 },
-  { id: "wash-basins", name: "Wash Basins", count: 18 },
-  { id: "soap-dispensers", name: "Soap Dispensers", count: 14 },
-  { id: "trays-platters", name: "Trays & Platters", count: 16 },
-  { id: "decorative-bowls", name: "Decorative Bowls", count: 19 },
-  { id: "candle-holders", name: "Candle Holders", count: 15 },
-  { id: "decorative-boxes", name: "Decorative Boxes", count: 12 },
-  { id: "marble-sculptures", name: "Marble Sculptures", count: 10 },
-  { id: "garden-outdoor-decor", name: "Garden & Outdoor Décor", count: 8 },
-  { id: "custom-marble-projects", name: "Custom Marble Projects", count: 14 },
 ];
 
 export const subcategories: Record<string, string[]> = {

@@ -116,14 +116,6 @@ export function AboutSection() {
                 />
               </div>
 
-              <div className="absolute -bottom-10 -right-10 w-2/3 aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-8 border-background hidden lg:block">
-                <img
-                  src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&q=80"
-                  alt="Craftsmanship detail"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                />
-              </div>
-
               <div className="absolute -top-8 -left-8 glass rounded-2xl p-6 shadow-xl">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center animate-pulse-glow">

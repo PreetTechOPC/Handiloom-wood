@@ -22,11 +22,44 @@ async function getProducts() {
       return [];
     };
 
+    const enumMap: Record<string, string> = {
+      "woodFurniture": "Wood Furniture",
+      "marbleDecor": "Marble Décor",
+      "livingRoomFurniture": "Living Room Furniture",
+      "diningRoomFurniture": "Dining Room Furniture",
+      "bedroomFurniture": "Bedroom Furniture",
+      "consoleTables": "Console Tables",
+      "coffeeTables": "Coffee Tables",
+      "sideTables": "Side Tables",
+      "outdoorFurniture": "Outdoor Furniture",
+      "customFurniture": "Custom Furniture",
+      "washBasins": "Wash Basins",
+      "soapDispensers": "Soap Dispensers",
+      "traysPlatters": "Trays & Platters",
+      "decorativeBowls": "Decorative Bowls",
+      "candleHolders": "Candle Holders",
+      "decorativeBoxes": "Decorative Boxes",
+      "marbleSculptures": "Marble Sculptures",
+      "gardenOutdoorDecor": "Garden & Outdoor Décor",
+      "customMarbleProjects": "Custom Marble Projects",
+    };
+
+    const ensureString = (val: any) => {
+      let str = "";
+      if (Array.isArray(val)) str = val.length > 0 ? String(val[0]) : "";
+      else if (typeof val === 'string') str = val;
+      else if (val && typeof val === 'object' && val.name) str = String(val.name);
+      
+      return enumMap[str] || str;
+    };
+
     return products
       .filter(p => p && p.slug)
       .map(p => ({
         ...p,
         slug: p.slug || `product-${p.id}`,
+        category: ensureString(p.category),
+        subcategory: ensureString(p.subcategory),
         images: (p.images || []).map((img: any) => img?.url || "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80"),
         materials: ensureArray(p.materials),
         colors: ensureArray(p.colors),
