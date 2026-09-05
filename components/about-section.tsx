@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Award, Leaf, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, Award, Leaf, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -119,8 +119,7 @@ export function AboutSection() {
               <div className="absolute -top-8 -left-8 glass rounded-2xl p-6 shadow-xl">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center animate-pulse-glow">
-                    <Sparkles className="w-8 h-8 text-primary-foreground" />
-                  </div>
+                    </div>
                   <div>
                     <p className="font-serif text-4xl font-bold text-foreground">
                       <Counter end={15} suffix="+" />

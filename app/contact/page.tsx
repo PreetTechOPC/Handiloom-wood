@@ -22,7 +22,6 @@ import {
   Clock,
   Send,
   CheckCircle2,
-  Sparkles,
   Globe,
   Building2,
   Headphones,
@@ -179,7 +178,6 @@ export default function ContactPage() {
           <div className="max-w-5xl space-y-8">
             <div className="flex flex-wrap items-center gap-3">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2.5 text-sm font-semibold text-primary backdrop-blur-sm">
-                <Sparkles className="h-4 w-4" />
                 Let's Work Together
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/70 px-4 py-2 text-xs text-muted-foreground backdrop-blur-sm">
@@ -437,7 +435,7 @@ export default function ContactPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-3 mb-12">
               <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-                <Sparkles className="h-4 w-4" /> Get In Touch
+                Get In Touch
               </p>
               <h2 className="font-serif text-3xl lg:text-4xl leading-tight">
                 Multiple Ways to Connect

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs, EffectFade, Controller } from "swiper/modules";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -58,7 +58,7 @@ export function ProductGallery({ images, name, featured, inStock }: ProductGalle
           <div className="absolute bottom-4 left-4 flex gap-2 z-30">
             {featured && (
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/90 px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
-                <Sparkles className="h-4 w-4" /> Featured
+                Featured
               </span>
             )}
             {!inStock && (

@@ -5,7 +5,6 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import {
-  Sparkles,
   X,
   ChevronLeft,
   ChevronRight,
@@ -96,7 +95,6 @@ export default function GalleryClient({ initialImages }: GalleryClientProps) {
         <div className="container mx-auto px-6 py-24 relative z-10">
           <div className="max-w-4xl space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2.5 text-sm font-semibold text-primary backdrop-blur-sm">
-              <Sparkles className="h-4 w-4" />
               Our Portfolio
             </div>
 
@@ -218,8 +216,7 @@ export default function GalleryClient({ initialImages }: GalleryClientProps) {
           {filteredImages.length === 0 && (
             <div className="text-center py-20">
               <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-secondary/50 mb-4">
-                <Sparkles className="h-8 w-8 text-muted-foreground" />
-              </div>
+                </div>
               <h3 className="font-serif text-2xl text-foreground mb-2">
                 No items found
               </h3>

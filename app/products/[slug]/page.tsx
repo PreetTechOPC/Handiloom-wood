@@ -6,7 +6,6 @@ import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft,
-  Sparkles,
   CheckCircle2,
   Ruler,
   Package,
@@ -323,8 +322,7 @@ export default async function ProductDetailPage({
             <div className="rounded-4xl border border-border/70 bg-background/40 backdrop-blur-md p-8 lg:p-12 shadow-2xl space-y-6 will-change-transform">
               <div className="flex items-center gap-3">
                 <span className="h-10 w-10 rounded-full bg-primary/15 text-primary inline-flex items-center justify-center shadow-inner">
-                  <Sparkles className="h-5 w-5" />
-                </span>
+                  </span>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-foreground/40">
                     Details

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Play, Shield, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -39,7 +39,6 @@ export function HeroSection() {
                   : "opacity-0 translate-y-2"
               }`}
             >
-              <Sparkles className="h-4 w-4" />
               Artisan Living · 2025 Collection
             </div>
 

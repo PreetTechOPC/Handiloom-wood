@@ -80,7 +80,7 @@ export function Footer() {
                 onClick={handleDownload}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-14 text-base font-medium shine-effect overflow-hidden group"
               >
-                Download Catalogues
+                Request Catalogues
                 <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Button>
             </div>
@@ -104,7 +104,31 @@ export function Footer() {
             <p className="text-background/60 mb-6 sm:mb-8 max-w-sm leading-relaxed text-sm sm:text-base">
               HANDILOOMWOOD is an international supplier of handcrafted marble décor, natural stone furniture, and bespoke luxury interior pieces, serving architects, retailers, hospitality brands, and interior designers worldwide.
             </p>
+          </div>
 
+          <div className="lg:col-span-3">
+            <h4 className="font-semibold text-background mb-6 text-lg">
+              Quick Links
+            </h4>
+            <ul className="space-y-4">
+              {footerLinks.quickLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-background/60 hover:text-primary transition-colors flex items-center gap-2 group"
+                  >
+                    <span>{link.name}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-4">
+            <h4 className="font-semibold text-background mb-6 text-lg">
+              Contact Us
+            </h4>
             <div className="space-y-3 sm:space-y-4">
               <a
                 href="mailto:export@handiloomwood.com"
@@ -156,64 +180,37 @@ export function Footer() {
                   </span>
                 </div>
               </div>
-            </div>
-          </div>
+              </div>
 
-          <div className="lg:col-span-3">
-            <h4 className="font-semibold text-background mb-6 text-lg">
-              Quick Links
-            </h4>
-            <ul className="space-y-4">
-              {footerLinks.quickLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-background/60 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span>{link.name}</span>
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-4">
-            <h4 className="font-semibold text-background mb-6 text-lg">
-              Follow Us
-            </h4>
-            <div className="flex flex-wrap gap-3 mb-6">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-                  aria-label={social.name}
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d={social.icon} />
-                  </svg>
-                </a>
-              ))}
+              {/* Follow Us Section inside Contact Us */}
+              <div className="pt-6 sm:pt-8">
+                <h4 className="font-semibold text-background mb-6 text-lg">
+                  Follow Us
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+                      aria-label={social.name}
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d={social.icon} />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
-            <p className="text-background/60 text-sm">
-              Business Hours:
-              <br />
-              Mon-Fri: 9:00 AM - 6:00 PM IST
-              <br />
-              Sat: 10:00 AM - 4:00 PM IST
-              <br />
-              Sunday: Closed
-            </p>
           </div>
         </div>
-      </div>
 
       <div className="border-t border-background/10">
         <div className="container mx-auto px-4 sm:px-6 py-5 sm:py-6">

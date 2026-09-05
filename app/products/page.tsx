@@ -1,6 +1,5 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { Sparkles } from "lucide-react";
 import { products as localProducts } from "@/lib/products";
 import { hygraph, GET_ALL_PRODUCTS } from "@/lib/hygraph";
 import { ProductsClient } from "./ProductsClient";
@@ -103,7 +102,6 @@ export default async function ProductsPage() {
         <div className="container mx-auto px-6 py-24 relative z-10">
           <div className="max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2.5 text-sm font-semibold text-primary backdrop-blur-sm">
-              <Sparkles className="h-4 w-4" />
               Premium Handcrafted Furniture
             </div>
 

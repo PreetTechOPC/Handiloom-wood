@@ -174,7 +174,6 @@ export function ProductsClient({ initialProducts }: ProductsClientProps) {
   };
 
   const activeFilterCount =
-    (selectedCategory ? 1 : 0) +
     selectedSubcategories.length +
     selectedMaterials.length +
     (showInStockOnly ? 1 : 0) +

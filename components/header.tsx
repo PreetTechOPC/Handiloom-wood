@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -24,6 +24,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,7 +120,12 @@ export function Header() {
                       modal={false}
                     >
                       <DropdownMenuTrigger asChild>
-                        <button
+                        <Link
+                          href={link.href}
+                          onClick={() => {
+                            setOpenDropdown(null);
+                            router.push(link.href);
+                          }}
                           className={`flex items-center gap-1.5 relative px-4 py-2 text-sm font-medium transition-colors duration-300 group outline-none cursor-pointer ${
                             active
                               ? "text-primary font-semibold"
@@ -139,7 +145,7 @@ export function Header() {
                               active ? "w-6" : "w-0 group-hover:w-4"
                             }`}
                           />
-                        </button>
+                        </Link>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
                         onMouseEnter={() => setOpenDropdown(link.name)}
