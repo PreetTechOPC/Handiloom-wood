@@ -92,7 +92,7 @@ export function Header() {
         aria-label="Main Navigation Header"
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
             {/* Logo */}
             <Link
               href="/"
@@ -103,7 +103,7 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Desktop Navigation">
+            <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1" aria-label="Desktop Navigation">
               {navLinks.map((link) => {
                 const active = isActiveLink(link.href, link.submenu);
 
@@ -196,14 +196,7 @@ export function Header() {
               })}
             </nav>
 
-            {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center gap-2">
-              <Button asChild className="ml-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2.5 text-sm font-medium shine-effect overflow-hidden relative group">
-                <Link href="/contact">
-                  <span className="relative z-10">Get in Touch</span>
-                </Link>
-              </Button>
-            </div>
+
 
             {/* Mobile Menu Button */}
             <button
@@ -314,17 +307,7 @@ export function Header() {
             })}
           </Accordion>
 
-          <div
-            className={`mt-auto pt-10 transition-all duration-700 delay-300 ${
-              isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-            }`}
-          >
-            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-7 text-lg font-medium shadow-xl">
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                Get in Touch
-              </Link>
-            </Button>
-          </div>
+
         </div>
       </div>
     </>

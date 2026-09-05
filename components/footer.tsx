@@ -7,6 +7,7 @@ import { Send, MapPin, Phone, Mail, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = {
   quickLinks: [
@@ -37,24 +38,6 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  const handleDownload = () => {
-    const files = [
-      "/Big sculptures lated.pdf",
-      "/HLW Mixed Marble.pdf",
-      "/HLW sculpture latest.pdf",
-      "/Travertine Latest.pdf",
-    ];
-
-    files.forEach((file) => {
-      const link = document.createElement("a");
-      link.href = file;
-      link.download = file.split("/").pop() || "catalogue.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  };
-
   return (
     <footer className="bg-foreground text-background relative overflow-hidden">
       <div className="relative border-b border-background/10">
@@ -77,11 +60,13 @@ export function Footer() {
 
             <div className="flex justify-center mt-6">
               <Button
-                onClick={handleDownload}
+                asChild
                 className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-14 text-base font-medium shine-effect overflow-hidden group"
               >
-                Request Catalogues
-                <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <Link href="/contact">
+                  Request Catalogues
+                  <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
               </Button>
             </div>
           </div>

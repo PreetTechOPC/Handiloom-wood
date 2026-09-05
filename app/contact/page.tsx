@@ -636,49 +636,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Section 4: Final CTA Section */}
-          <div className="mt-14 overflow-hidden rounded-3xl border border-primary/20 bg-neutral-950 text-white p-8 sm:p-12 shadow-2xl text-center space-y-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">
-              READY TO SOURCE PREMIUM NATURAL STONE
-            </p>
-            <h3 className="font-serif text-3xl sm:text-4xl text-white max-w-2xl mx-auto leading-tight">
-              Let's create something exceptional together
-            </h3>
-            <p className="text-neutral-300 max-w-2xl mx-auto text-base leading-relaxed">
-              Whether you're sourcing marble décor, bespoke stone furniture, hospitality collections, or private-label products, our export team is ready to help.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4 pt-2">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-[#B84033] hover:bg-[#a2362b] text-white px-8 py-6 text-base font-semibold shadow-xl"
-                >
-                  <Send className="mr-2 h-4 w-4" /> Request a Quote
-                </Button>
-              </Link>
-              <DownloadCatalogueButton
-                size="lg"
-                variant="outline"
-                className="rounded-full border-neutral-700 bg-neutral-900 text-white hover:bg-neutral-800 px-8 py-6 text-base font-semibold"
-              />
-            </div>
-
-            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 pt-6 text-xs text-neutral-300 border-t border-neutral-800/80">
-              <span className="flex items-center gap-1.5">
-                🌎 Worldwide Export
-              </span>
-              <span className="flex items-center gap-1.5">
-                🪨 100% Natural Stone
-              </span>
-              <span className="flex items-center gap-1.5">
-                🏨 Hospitality Projects
-              </span>
-              <span className="flex items-center gap-1.5">
-                🏷 OEM & Private Label
-              </span>
-            </div>
-          </div>
         </div>
       </div>
 
